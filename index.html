@@ -1,1 +1,152 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tech Theme - Blue & Dark</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
+        body {
+            background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 100%);
+            color: #e0e6ff;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 50px;
+            padding: 30px;
+            border-bottom: 2px solid #00d4ff;
+            box-shadow: 0 4px 20px rgba(0, 212, 255, 0.1);
+        }
+
+        h1 {
+            font-size: 3em;
+            background: linear-gradient(135deg, #00d4ff, #0099ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 10px;
+            text-shadow: 0 0 30px rgba(0, 212, 255, 0.3);
+        }
+
+        p {
+            font-size: 1.1em;
+            color: #a0aeff;
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin: 40px 0;
+        }
+
+        .card {
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.1), rgba(0, 153, 255, 0.05));
+            border: 2px solid #00d4ff;
+            border-radius: 12px;
+            padding: 25px;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 20px rgba(0, 212, 255, 0.2);
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 40px rgba(0, 212, 255, 0.4);
+            border-color: #0099ff;
+        }
+
+        .card h2 {
+            color: #00d4ff;
+            margin-bottom: 15px;
+            font-size: 1.5em;
+        }
+
+        .card p {
+            color: #b0b8ff;
+            line-height: 1.6;
+        }
+
+        .btn {
+            background: linear-gradient(135deg, #00d4ff, #0099ff);
+            color: #0a0e27;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 8px;
+            font-size: 1em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 15px;
+            box-shadow: 0 4px 15px rgba(0, 212, 255, 0.3);
+        }
+
+        .btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 25px rgba(0, 212, 255, 0.5);
+        }
+
+        .btn:active {
+            transform: scale(0.98);
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 20px;
+            border-top: 2px solid #00d4ff;
+            color: #7080b0;
+        }
+
+        .glow-text {
+            color: #00d4ff;
+            text-shadow: 0 0 10px #00d4ff, 0 0 20px rgba(0, 212, 255, 0.5);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>⚡ Tech Showcase</h1>
+            <p>สไตล์เทคโนโลยี สีฟ้านำดำ</p>
+        </header>
+
+        <div class="card-grid">
+            <div class="card">
+                <h2>🚀 Performance</h2>
+                <p>ระบบที่ปรับให้ทำงานอย่างรวดเร็วและมีประสิทธิภาพสูง</p>
+                <button class="btn">เรียนรู้เพิ่มเติม</button>
+            </div>
+
+            <div class="card">
+                <h2>🔒 Security</h2>
+                <p>ความปลอดภัยระดับแนวหน้าสำหรับข้อมูลของคุณ</p>
+                <button class="btn">เรียนรู้เพิ่มเติม</button>
+            </div>
+
+            <div class="card">
+                <h2>🎨 Design</h2>
+                <p>ออกแบบที่สวยงาม และใช้งานง่ายสำหรับทุกคน</p>
+                <button class="btn">เรียนรู้เพิ่มเติม</button>
+            </div>
+        </div>
+
+        <footer>
+            <p class="glow-text">✨ Built with Modern Tech Stack ✨</p>
+        </footer>
+    </div>
+</body>
+</html>
