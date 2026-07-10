@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Oriental Blue & Dark Theme</title>
+    <title>Elsodus Blue Theme</title>
     <style>
         * {
             margin: 0;
@@ -12,8 +12,9 @@
         }
 
         body {
-            background: linear-gradient(135deg, #0a0f1e 0%, #1a2f4a 50%, #0a0f1e 100%);
-            color: #ffffff;
+            background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 25%, #0d1929 50%, #1a2555 75%, #0a0e27 100%);
+            background-attachment: fixed;
+            color: #e0e6ff;
             font-family: Arial, sans-serif;
             min-height: 100vh;
             padding: 20px;
@@ -28,22 +29,23 @@
             text-align: center;
             margin-bottom: 60px;
             padding: 50px 30px;
-            border: 3px solid #0099ff;
+            border: 3px solid #1e90ff;
             border-radius: 15px;
-            background: rgba(10, 20, 50, 0.9);
-            box-shadow: 0 0 40px rgba(0, 150, 255, 0.2);
+            background: rgba(10, 20, 60, 0.9);
+            box-shadow: 0 0 40px rgba(30, 144, 255, 0.25);
         }
 
         h1 {
             font-size: 3em;
-            color: #00d4ff;
+            color: #1e90ff;
             margin-bottom: 15px;
-            text-shadow: 0 0 20px rgba(0, 150, 255, 0.4);
+            text-shadow: 0 0 20px rgba(30, 144, 255, 0.5);
+            font-weight: 700;
         }
 
         .subtitle {
             font-size: 1.2em;
-            color: #00ffff;
+            color: #6495ed;
             font-style: italic;
         }
 
@@ -55,92 +57,72 @@
         }
 
         .card {
-            background: rgba(20, 40, 80, 0.85);
-            border: 2px solid #0099ff;
+            background: linear-gradient(135deg, rgba(30, 144, 255, 0.15), rgba(65, 105, 225, 0.1));
+            border: 2px solid #1e90ff;
             border-radius: 15px;
             padding: 35px;
             transition: all 0.5s ease;
-            box-shadow: 0 0 30px rgba(0, 100, 180, 0.15);
+            box-shadow: 0 0 30px rgba(30, 144, 255, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(30, 144, 255, 0.15) 0%, transparent 70%);
+            border-radius: 50%;
         }
 
         .card:hover {
             transform: translateY(-15px);
-            border-color: #00d4ff;
-            box-shadow: 0 10px 50px rgba(0, 150, 255, 0.3);
+            border-color: #4169e1;
+            box-shadow: 0 10px 50px rgba(30, 144, 255, 0.4);
         }
 
         .card h2 {
-            color: #00ffff;
+            color: #1e90ff;
             margin-bottom: 20px;
             font-size: 1.6em;
+            position: relative;
+            z-index: 1;
         }
 
         .card p {
-            color: #ffffff;
+            color: #d0d8ff;
             line-height: 1.8;
             font-size: 1.05em;
+            position: relative;
+            z-index: 1;
         }
 
         .btn {
-            background: linear-gradient(135deg, #0099ff, #0055aa);
+            background: linear-gradient(135deg, #1e90ff, #4169e1);
             color: #ffffff;
-            border: 1px solid #0099ff;
+            border: 1px solid #1e90ff;
             padding: 12px 35px;
             border-radius: 8px;
             font-size: 1em;
-            font-weight: 500;
+            font-weight: 600;
             cursor: pointer;
             transition: all 0.4s ease;
             margin-top: 20px;
-            box-shadow: 0 0 20px rgba(0, 150, 255, 0.2);
+            box-shadow: 0 0 20px rgba(30, 144, 255, 0.3);
+            position: relative;
+            z-index: 1;
         }
 
         .btn:hover {
-            background: linear-gradient(135deg, #00d4ff, #0099ff);
-            box-shadow: 0 0 30px rgba(0, 180, 255, 0.4);
+            background: linear-gradient(135deg, #4169e1, #6495ed);
+            box-shadow: 0 0 30px rgba(30, 144, 255, 0.5);
             transform: translateY(-3px);
         }
 
         footer {
             text-align: center;
-            margin-top: 80px;
-            padding: 40px;
-            border-top: 2px solid #0099ff;
-            color: #00ffff;
-            font-style: italic;
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <header>
-            <h1>✨ Oriental Blue</h1>
-            <p class="subtitle">สีฟ้านำสีดำแบบหรูหรา</p>
-        </header>
-
-        <div class="card-grid">
-            <div class="card">
-                <h2>🎨 Elegant</h2>
-                <p>ออกแบบอย่างละเอียด สวยงามอย่างหรูหรา พร้อมสีน้ำเงินที่ลึกลับ</p>
-                <button class="btn">ดูเพิ่มเติม</button>
-            </div>
-
-            <div class="card">
-                <h2>🌙 Tranquil</h2>
-                <p>บรรยากาศสงบนิ่ม ด้วยโทนสีดำที่ผสมน้ำเงินอ่อนๆ ให้ความสบายตา</p>
-                <button class="btn">ดูเพิ่มเติม</button>
-            </div>
-
-            <div class="card">
-                <h2>💎 Premium</h2>
-                <p>มีลายระบายผู่กันโปร่งแสง สร้างความพิเศษและมีมิติ</p>
-                <button class="btn">ดูเพิ่มเติม</button>
-            </div>
-        </div>
-
-        <footer>
-            <p>🌸 Oriental Design with Modern Touch 🌸</p>
-        </footer>
-    </div>
-</body>
-</html>
+            margin-top:*
+
