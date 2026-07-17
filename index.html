@@ -12,7 +12,7 @@
         }
 
         body {
-            background-image: url('https://images-ext-1.discordapp.net/external/dSLKxnXHp5-1VpCLnrCMlFh8A_w1UpH3gPBVXrL_oI0/https/i.pinimg.com/564x/6e/36/a9/6e36a9ec03b3d79f15a37ab88f64a7f8.jpg');
+            background-image: url('./images/elsodus.jpg');
             background-size: cover;
             background-attachment: fixed;
             background-position: center;
@@ -48,7 +48,7 @@
             padding: 50px 30px;
             border: 3px solid #3a6fff;
             border-radius: 15px;
-            background: rgba(13, 8, 32, 0.75);
+            background: rgba(13, 8, 32, 0.85);
             box-shadow: 0 0 50px rgba(58, 111, 255, 0.4);
         }
 
@@ -63,7 +63,7 @@
 
         .subtitle {
             font-size: 1.2em;
-            color: #ffffff;
+            color: #e0e8ff;
             font-style: italic;
             text-shadow: 0 0 20px rgba(58, 111, 255, 0.6);
         }
@@ -76,7 +76,7 @@
         }
 
         .card {
-            background: rgba(13, 8, 32, 0.8);
+            background: rgba(13, 8, 32, 0.85);
             border: 2px solid #4d7fff;
             border-radius: 15px;
             padding: 35px;
@@ -84,7 +84,6 @@
             box-shadow: 0 0 40px rgba(58, 111, 255, 0.3);
             position: relative;
             overflow: hidden;
-            backdrop-filter: blur(5px);
         }
 
         .card::before {
@@ -94,5 +93,102 @@
             right: -50%;
             width: 300px;
             height: 300px;
-            background: radial-gradient(circle, rgba(58, 111, 255, 0.2
-                                                     
+            background: radial-gradient(circle, rgba(58, 111, 255, 0.2) 0%, transparent 70%);
+            border-radius: 50%;
+            transition: all 0.5s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-15px);
+            border-color: #7c9fff;
+            box-shadow: 0 0 60px rgba(58, 111, 255, 0.5);
+        }
+
+        .card:hover::before {
+            top: -30%;
+            right: -30%;
+        }
+
+        .card h2 {
+            color: #ffffff;
+            margin-bottom: 20px;
+            font-size: 1.6em;
+            position: relative;
+            z-index: 1;
+            text-shadow: 0 0 20px rgba(58, 111, 255, 0.6);
+        }
+
+        .card p {
+            color: #e0e8ff;
+            line-height: 1.8;
+            font-size: 1.05em;
+            position: relative;
+            z-index: 1;
+        }
+
+        .btn {
+            background: linear-gradient(135deg, #4d7fff, #7c9fff);
+            color: #ffffff;
+            border: 1px solid #4d7fff;
+            padding: 12px 35px;
+            border-radius: 8px;
+            font-size: 1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            margin-top: 20px;
+            box-shadow: 0 0 25px rgba(58, 111, 255, 0.4);
+            position: relative;
+            z-index: 1;
+        }
+
+        .btn:hover {
+            background: linear-gradient(135deg, #7c9fff, #a0c8ff);
+            box-shadow: 0 0 40px rgba(58, 111, 255, 0.6);
+            transform: translateY(-3px);
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 80px;
+            padding: 40px;
+            border-top: 2px solid #4d7fff;
+            color: #e0e8ff;
+            font-style: italic;
+            text-shadow: 0 0 15px rgba(58, 111, 255, 0.5);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>✨ ELSODUS ✨</h1>
+            <p class="subtitle">สีน้ำเงินม่วงลึกลับที่สวยงาม</p>
+        </header>
+
+        <div class="card-grid">
+            <div class="card">
+                <h2>🎨 Mystical</h2>
+                <p>สีน้ำเงินม่วงที่ลึกลับ สวยงามอย่างพิเศษ ท่องไปในโลกของศิลปะที่งดงาม</p>
+                <button class="btn">ดูเพิ่มเติม</button>
+            </div>
+
+            <div class="card">
+                <h2>🌌 Celestial</h2>
+                <p>บรรยากาศท้องฟ้ายามค่ำคืน เหมือนพลุกไปในจักรวาล อ่อนนุ่ม และสงบ</p>
+                <button class="btn">ดูเพิ่มเติม</button>
+            </div>
+
+            <div class="card">
+                <h2>💎 Ethereal</h2>
+                <p>ลึกลับ มีเสน่ห์ สีที่ผ่อนคลายจิตใจ และให้ความสงบของจิตสำนึก</p>
+                <button class="btn">ดูเพิ่มเติม</button>
+            </div>
+        </div>
+
+        <footer>
+            <p>🌙 Mystical Blue Purple Design 🌙</p>
+        </footer>
+    </div>
+</body>
+</html>
