@@ -12,17 +12,34 @@
         }
 
         body {
-            background: linear-gradient(135deg, #0d0820 0%, #1a1a3a 20%, #0f1a35 40%, #1a2a4a 60%, #0d1530 80%, #0d0820 100%);
+            background-image: url('https://images-ext-1.discordapp.net/external/dSLKxnXHp5-1VpCLnrCMlFh8A_w1UpH3gPBVXrL_oI0/https/i.pinimg.com/564x/6e/36/a9/6e36a9ec03b3d79f15a37ab88f64a7f8.jpg');
+            background-size: cover;
             background-attachment: fixed;
+            background-position: center;
             color: #ffffff;
             font-family: Arial, sans-serif;
             min-height: 100vh;
             padding: 20px;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(13, 8, 32, 0.5);
+            pointer-events: none;
+            z-index: 0;
         }
 
         .container {
             max-width: 1200px;
             margin: 0 auto;
+            position: relative;
+            z-index: 1;
         }
 
         header {
@@ -31,26 +48,24 @@
             padding: 50px 30px;
             border: 3px solid #3a6fff;
             border-radius: 15px;
-            background: linear-gradient(135deg, rgba(13, 8, 32, 0.95), rgba(26, 26, 58, 0.9));
-            box-shadow: 0 0 50px rgba(58, 111, 255, 0.3), 0 0 100px rgba(100, 150, 255, 0.1);
+            background: rgba(13, 8, 32, 0.75);
+            box-shadow: 0 0 50px rgba(58, 111, 255, 0.4);
         }
 
         h1 {
             font-size: 3em;
-            background: linear-gradient(135deg, #4d7fff, #7c9fff, #3a6fff);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            color: #ffffff;
             margin-bottom: 15px;
-            text-shadow: 0 0 30px rgba(58, 111, 255, 0.4);
+            text-shadow: 0 0 30px rgba(58, 111, 255, 0.8), 0 0 60px rgba(100, 150, 255, 0.5);
             font-weight: 700;
             letter-spacing: 2px;
         }
 
         .subtitle {
             font-size: 1.2em;
-            color: #a0b8ff;
+            color: #ffffff;
             font-style: italic;
+            text-shadow: 0 0 20px rgba(58, 111, 255, 0.6);
         }
 
         .card-grid {
@@ -61,14 +76,15 @@
         }
 
         .card {
-            background: linear-gradient(135deg, rgba(58, 111, 255, 0.12), rgba(100, 80, 180, 0.08));
+            background: rgba(13, 8, 32, 0.8);
             border: 2px solid #4d7fff;
             border-radius: 15px;
             padding: 35px;
             transition: all 0.5s ease;
-            box-shadow: 0 0 40px rgba(58, 111, 255, 0.15), inset 0 0 20px rgba(100, 150, 255, 0.05);
+            box-shadow: 0 0 40px rgba(58, 111, 255, 0.3);
             position: relative;
             overflow: hidden;
+            backdrop-filter: blur(5px);
         }
 
         .card::before {
@@ -78,68 +94,5 @@
             right: -50%;
             width: 300px;
             height: 300px;
-            background: radial-gradient(circle, rgba(58, 111, 255, 0.2) 0%, transparent 70%);
-            border-radius: 50%;
-            transition: all 0.5s ease;
-        }
-
-        .card:hover {
-            transform: translateY(-15px);
-            border-color: #7c9fff;
-            box-shadow: 0 0 60px rgba(58, 111, 255, 0.35), inset 0 0 30px rgba(100, 150, 255, 0.1);
-        }
-
-        .card:hover::before {
-            top: -30%;
-            right: -30%;
-        }
-
-        .card h2 {
-            color: #7c9fff;
-            margin-bottom: 20px;
-            font-size: 1.6em;
-            position: relative;
-            z-index: 1;
-        }
-
-        .card p {
-            color: #d0d8ff;
-            line-height: 1.8;
-            font-size: 1.05em;
-            position: relative;
-            z-index: 1;
-        }
-
-        .btn {
-            background: linear-gradient(135deg, #4d7fff, #7c9fff);
-            color: #ffffff;
-            border: 1px solid #4d7fff;
-            padding: 12px 35px;
-            border-radius: 8px;
-            font-size: 1em;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.4s ease;
-            margin-top: 20px;
-            box-shadow: 0 0 25px rgba(58, 111, 255, 0.3);
-            position: relative;
-            z-index: 1;
-        }
-
-        .btn:hover {
-            background: linear-gradient(135deg, #7c9fff, #a0c8ff);
-            box-shadow: 0 0 40px rgba(58, 111, 255, 0.5);
-            transform: translateY(-3px);
-        }
-
-        footer {
-            text-align: center;
-            margin-top: 80px;
-            padding: 40px;
-            border-top: 2px solid #4d7fff;
-            color: #a0b8ff;
-            font-style: italic;
-        }
-    </style>
-</head>*
-
+            background: radial-gradient(circle, rgba(58, 111, 255, 0.2
+                                                     
