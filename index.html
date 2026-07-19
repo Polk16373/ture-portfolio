@@ -84,6 +84,8 @@
             box-shadow: 0 0 40px rgba(58, 111, 255, 0.3);
             position: relative;
             overflow: hidden;
+            display: flex;
+            flex-direction: column;
         }
 
         .card::before {
@@ -124,6 +126,7 @@
             font-size: 1.05em;
             position: relative;
             z-index: 1;
+            flex-grow: 1;
         }
 
         .btn {
@@ -140,6 +143,7 @@
             box-shadow: 0 0 25px rgba(58, 111, 255, 0.4);
             position: relative;
             z-index: 1;
+            align-self: flex-start;
         }
 
         .btn:hover {
