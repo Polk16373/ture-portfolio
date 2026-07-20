@@ -1,1 +1,186 @@
-.
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biographia - นภรัท ศุภวัฒน์</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-image: url('https://raw.githubusercontent.com/Polk16373/ture-portfolio/main/images/Eisodus.jpg');
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
+            color: #ffffff;
+            font-family: Arial, sans-serif;
+            min-height: 100vh;
+            padding: 20px;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(13, 8, 32, 0.2);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 40px 30px;
+            border: 3px solid #3a6fff;
+            border-radius: 15px;
+            background: rgba(13, 8, 32, 0.85);
+            box-shadow: 0 0 50px rgba(58, 111, 255, 0.4);
+        }
+
+        h1 {
+            font-size: 2.8em;
+            color: #ffffff;
+            margin-bottom: 10px;
+            text-shadow: 0 0 30px rgba(58, 111, 255, 0.8), 0 0 60px rgba(100, 150, 255, 0.5);
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
+
+        .subtitle {
+            font-size: 1.2em;
+            color: #e0e8ff;
+            font-style: italic;
+            text-shadow: 0 0 20px rgba(58, 111, 255, 0.6);
+        }
+
+        .profile-card {
+            background: rgba(13, 8, 32, 0.85);
+            border: 2px solid #4d7fff;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 0 40px rgba(58, 111, 255, 0.3);
+            margin-bottom: 30px;
+        }
+
+        .profile-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .profile-img {
+            width: 220px;
+            height: 220px;
+            object-fit: cover;
+            border-radius: 15px;
+            border: 2px solid #7c9fff;
+            box-shadow: 0 0 30px rgba(58, 111, 255, 0.5);
+        }
+
+        .profile-info {
+            flex: 1;
+            min-width: 280px;
+        }
+
+        .profile-info h2 {
+            font-size: 1.8em;
+            color: #ffffff;
+            margin-bottom: 20px;
+            text-shadow: 0 0 20px rgba(58, 111, 255, 0.6);
+            border-bottom: 1px solid rgba(77, 127, 255, 0.4);
+            padding-bottom: 10px;
+        }
+
+        .info-list {
+            list-style: none;
+            line-height: 2;
+            color: #e0e8ff;
+            font-size: 1.05em;
+        }
+
+        .info-list strong {
+            color: #7c9fff;
+        }
+
+        .btn-back {
+            display: inline-block;
+            background: linear-gradient(135deg, #4d7fff, #7c9fff);
+            color: #ffffff;
+            border: 1px solid #4d7fff;
+            padding: 12px 35px;
+            border-radius: 8px;
+            font-size: 1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            box-shadow: 0 0 25px rgba(58, 111, 255, 0.4);
+            text-decoration: none;
+            margin-top: 20px;
+        }
+
+        .btn-back:hover {
+            background: linear-gradient(135deg, #7c9fff, #a0c8ff);
+            box-shadow: 0 0 40px rgba(58, 111, 255, 0.6);
+            transform: translateY(-3px);
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 30px;
+            border-top: 2px solid #4d7fff;
+            color: #e0e8ff;
+            font-style: italic;
+            text-shadow: 0 0 15px rgba(58, 111, 255, 0.5);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎨 Biographia</h1>
+            <p class="subtitle">ประวัติส่วนตัว</p>
+        </header>
+
+        <div class="profile-card">
+            <div class="profile-content">
+                <img src="https://raw.githubusercontent.com/Polk16373/ture-portfolio/main/images/polk.jpg" alt="นภรัท ศุภวัฒน์" class="profile-img">
+                <div class="profile-info">
+                    <h2>ข้อมูลทั่วไป</h2>
+                    <ul class="info-list">
+                        <li><strong>ชื่อ-นามสกุล:</strong> นภรัท ศุภวัฒน์</li>
+                        <li><strong>ชื่อเล่น:</strong> [ระบุชื่อเล่น]</li>
+                        <li><strong>วันเกิด:</strong> [ระบุวันเกิด]</li>
+                        <li><strong>ความสนใจ:</strong> [ระบุความสนใจ เช่น การพัฒนาเว็บ, การเขียนโค้ด]</li>
+                        <li><strong>เกี่ยวกับฉัน:</strong> [ใส่คำอธิบายสั้นๆ เกี่ยวกับตัวคุณ]</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div style="text-align: center;">
+            <a href="index.html" class="btn-back">⬅ กลับหน้าหลัก</a>
+        </div>
+
+        <footer>
+            <p>🌙 The Eisodusfolio 🌙</p>
+        </footer>
+    </div>
+</body>
+</html>
