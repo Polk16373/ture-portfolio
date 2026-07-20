@@ -145,6 +145,8 @@
             position: relative;
             z-index: 1;
             align-self: flex-start;
+            text-decoration: none; /* เพิ่มส่วนนี้เพื่อลบเส้นใต้ของลิงก์ */
+            display: inline-block;  /* เพิ่มส่วนนี้เพื่อให้แท็ก <a> วางตัวสวยงามเหมือนปุ่ม */
         }
 
         .btn:hover {
@@ -205,7 +207,7 @@
             <div class="card">
                 <h2>🎨 Biographia</h2>
                 <p>ประวัติส่วนตัว คือข้อมูลโดยคร่าว</p>
-                <button class="btn">ดูเพิ่มเติม</button>
+                <a href="biographia.html" class="btn">ดูเพิ่มเติม</a>
             </div>
 
             <div class="card">
