@@ -158,20 +158,30 @@
             text-shadow: 0 0 5px rgba(0,0,0,0.5);
         }
 
+        /* 🖼️ ปรับขนาดกรอบภาพให้เท่ากันเป๊ะทุกใบ */
         .project-img-box {
             position: relative;
             border-radius: 10px;
             overflow: hidden;
             border: 2px solid #4d7fff;
-            min-width: 250px;
-            max-width: 100%;
+            width: 100%;
+            max-width: 300px; /* กำหนดความกว้างมาตรฐาน */
+            height: 200px;    /* กำหนดความสูงมาตรฐาน */
+            flex-shrink: 0;   /* ป้องกันไม่ให้รูปโดนบีบขนาด */
             cursor: pointer;
+            margin: 0 auto;
+        }
+
+        .featured .project-img-box {
+            max-width: 100%;
+            height: 260px; /* การ์ด Highlight ใหญ่กว่าเล็กน้อย */
         }
 
         .project-img {
             width: 100%;
-            height: 200px;
-            object-fit: cover;
+            height: 100%;
+            object-fit: cover; /* ครอบตัดภาพให้อยู่ในกรอบอย่างสวยงาม ไม่บิดเบี้ยว */
+            object-position: center;
             display: block;
             transition: transform 0.3s ease;
         }
@@ -335,7 +345,7 @@
                 </div>
             </div>
 
-            <!-- Card 2: Science Show (แก้ไขชื่อรูปภาพเรียบร้อย) -->
+            <!-- Card 2: Science Show -->
             <div class="project-card" data-category="science">
                 <div class="project-img-box" onclick="openModal('images/วิทย์สมมุติ.jpg')">
                     <img src="images/วิทย์สมมุติ.jpg" alt="Science Show" class="project-img">
@@ -353,7 +363,7 @@
                 </div>
             </div>
 
-            <!-- Card 3: เทควันโด (แก้ไขชื่อรูปภาพเรียบร้อย) -->
+            <!-- Card 3: เทควันโด -->
             <div class="project-card" data-category="sports">
                 <div class="project-img-box" onclick="openModal('images/เทควันโด.jpeg')">
                     <img src="images/เทควันโด.jpeg" alt="เทควันโด" class="project-img">
