@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Biographia - นภรัท ศุภวัฒน์</title>
+    <title>Ekpaidefsi - ประวัติการศึกษา | นภรัท</title>
     <style>
         * {
             margin: 0;
@@ -17,7 +17,7 @@
             background-attachment: fixed;
             background-position: center;
             color: #ffffff;
-            font-family: Arial, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             min-height: 100vh;
             padding: 20px;
             position: relative;
@@ -30,13 +30,13 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(13, 8, 32, 0.2);
+            background: rgba(13, 8, 32, 0.4);
             pointer-events: none;
             z-index: 0;
         }
 
         .container {
-            max-width: 1000px;
+            max-width: 900px;
             margin: 0 auto;
             position: relative;
             z-index: 1;
@@ -44,8 +44,8 @@
 
         header {
             text-align: center;
-            margin-bottom: 40px;
-            padding: 40px 30px;
+            margin-bottom: 30px;
+            padding: 30px 20px;
             border: 3px solid #3a6fff;
             border-radius: 15px;
             background: rgba(13, 8, 32, 0.85);
@@ -53,73 +53,109 @@
         }
 
         h1 {
-            font-size: 2.8em;
+            font-size: 2.5em;
             color: #ffffff;
             margin-bottom: 10px;
-            text-shadow: 0 0 30px rgba(58, 111, 255, 0.8), 0 0 60px rgba(100, 150, 255, 0.5);
+            text-shadow: 0 0 30px rgba(58, 111, 255, 0.8);
             font-weight: 700;
-            letter-spacing: 2px;
         }
 
         .subtitle {
-            font-size: 1.2em;
+            font-size: 1.1em;
             color: #e0e8ff;
             font-style: italic;
-            text-shadow: 0 0 20px rgba(58, 111, 255, 0.6);
         }
 
-        .profile-card {
+        /* เมนูปุ่มเลือกแท็บระดับชั้น */
+        .tab-menu {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .tab-btn {
+            background: rgba(13, 8, 32, 0.85);
+            color: #ffffff;
+            border: 2px solid #4d7fff;
+            padding: 12px 25px;
+            border-radius: 25px;
+            font-size: 1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 15px rgba(58, 111, 255, 0.2);
+        }
+
+        .tab-btn:hover {
+            border-color: #7c9fff;
+            box-shadow: 0 0 25px rgba(58, 111, 255, 0.5);
+            transform: translateY(-3px);
+        }
+
+        .tab-btn.active {
+            background: linear-gradient(135deg, #4d7fff, #7c9fff);
+            border-color: #a0c8ff;
+            box-shadow: 0 0 30px rgba(58, 111, 255, 0.7);
+        }
+
+        /* ส่วนแสดงเนื้อหา */
+        .content-box {
             background: rgba(13, 8, 32, 0.85);
             border: 2px solid #4d7fff;
             border-radius: 15px;
             padding: 40px;
             box-shadow: 0 0 40px rgba(58, 111, 255, 0.3);
-            margin-bottom: 30px;
-        }
-
-        .profile-content {
+            min-height: 250px;
             display: flex;
-            flex-wrap: wrap;
-            gap: 30px;
             align-items: center;
+            justify-content: center;
+            text-align: center;
         }
 
-        .profile-img {
-            width: 220px;
-            height: 220px;
-            object-fit: cover;
-            border-radius: 15px;
-            border: 2px solid #7c9fff;
-            box-shadow: 0 0 30px rgba(58, 111, 255, 0.5);
+        .tab-content {
+            display: none;
+            width: 100%;
+            animation: fadeIn 0.5s ease;
         }
 
-        .profile-info {
-            flex: 1;
-            min-width: 280px;
+        .tab-content.active {
+            display: block;
         }
 
-        .profile-info h2 {
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .edu-title {
             font-size: 1.8em;
-            color: #ffffff;
-            margin-bottom: 20px;
-            text-shadow: 0 0 20px rgba(58, 111, 255, 0.6);
-            border-bottom: 1px solid rgba(77, 127, 255, 0.4);
-            padding-bottom: 10px;
+            color: #7c9fff;
+            margin-bottom: 15px;
+            text-shadow: 0 0 15px rgba(58, 111, 255, 0.6);
         }
 
-        .info-list {
-            list-style: none;
-            line-height: 2;
+        .edu-school {
+            font-size: 1.3em;
+            color: #ffffff;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .edu-detail {
             color: #e0e8ff;
             font-size: 1.05em;
+            line-height: 1.8;
         }
 
-        .info-list strong {
-            color: #7c9fff;
+        /* ปุ่มกลับหน้าหลัก */
+        .btn-container {
+            text-align: center;
+            margin-top: 30px;
         }
 
         .btn-back {
-            display: inline-block;
             background: linear-gradient(135deg, #4d7fff, #7c9fff);
             color: #ffffff;
             border: 1px solid #4d7fff;
@@ -131,7 +167,7 @@
             transition: all 0.4s ease;
             box-shadow: 0 0 25px rgba(58, 111, 255, 0.4);
             text-decoration: none;
-            margin-top: 20px;
+            display: inline-block;
         }
 
         .btn-back:hover {
@@ -143,7 +179,7 @@
         footer {
             text-align: center;
             margin-top: 50px;
-            padding: 30px;
+            padding: 20px;
             border-top: 2px solid #4d7fff;
             color: #e0e8ff;
             font-style: italic;
@@ -154,34 +190,80 @@
 <body>
     <div class="container">
         <header>
-            <h1>🎨 Biographia</h1>
-            <p class="subtitle">ประวัติส่วนตัว</p>
+            <h1>🌌 Ekpaidefsi 🌌</h1>
+            <p class="subtitle">ประวัติการศึกษา</p>
         </header>
 
-        <div class="profile-card">
-            <div class="profile-content">
-                <img src="https://raw.githubusercontent.com/Polk16373/ture-portfolio/main/images/polk.jpg" alt="นภรัท ศุภวัฒน์" class="profile-img">
-                <div class="profile-info">
-                    <h2>ข้อมูลทั่วไป</h2>
-                    <ul class="info-list">
-                        <li><strong>ชื่อ-นามสกุล:</strong> นภรัท ศุภวัฒน์</li>
-                        <li><strong>ชื่อเล่น:</strong> [ระบุชื่อเล่น]</li>
-                        <li><strong>วันเกิด:</strong> [ระบุวันเกิด]</li>
-                        <li><strong>โรงเรียน:</strong> [ระบุชื่อโรงเรียน]</li>
-                        <li><strong>งานอดิเรก:</strong> [ระบุงานอดิเรก]</li>
-                        <li><strong>ความสามารถพิเศษ:</strong> [ระบุความสามารถพิเศษ]</li>
-                    </ul>
+        <!-- เมนูปุ่มเลือก -->
+        <div class="tab-menu">
+            <button class="tab-btn" onclick="openTab('primary', this)">🌱 ประถมศึกษา</button>
+            <button class="tab-btn" onclick="openTab('junior', this)">🌿 มัธยมศึกษาตอนต้น</button>
+            <button class="tab-btn" onclick="openTab('senior', this)">🌳 มัธยมศึกษาตอนปลาย</button>
+        </div>
+
+        <!-- กรอบแสดงเนื้อหา -->
+        <div class="content-box">
+            <!-- ข้อความเริ่มต้นก่อนกดเลือก -->
+            <div id="default-msg" class="tab-content active">
+                <p style="font-size: 1.2em; color: #a0c8ff;">👈 กรุณากดเลือกช่วงระดับชั้นที่ต้องการดูข้อมูลจากปุ่มด้านบนครับ</p>
+            </div>
+
+            <!-- ประถมศึกษา -->
+            <div id="primary" class="tab-content">
+                <div class="edu-title">🌱 ประถมศึกษา (ป.1 - ป.6)</div>
+                <div class="edu-school">โรงเรียน... [กรอกชื่อโรงเรียนประถมที่นี่]</div>
+                <div class="edu-detail">
+                    <p>ปีการศึกษา: 25XX - 25XX</p>
+                    <p>รายละเอียดเพิ่มเติม หรือผลงานเด่นในช่วงประถม</p>
+                </div>
+            </div>
+
+            <!-- มัธยมศึกษาตอนต้น -->
+            <div id="junior" class="tab-content">
+                <div class="edu-title">🌿 มัธยมศึกษาตอนต้น (ม.1 - ม.3)</div>
+                <div class="edu-school">โรงเรียนพานทอง</div>
+                <div class="edu-detail">
+                    <p>ปีการศึกษา: 25XX - 25XX</p>
+                    <p>รายละเอียดเพิ่มเติม / แผนการเรียน</p>
+                </div>
+            </div>
+
+            <!-- มัธยมศึกษาตอนปลาย -->
+            <div id="senior" class="tab-content">
+                <div class="edu-title">🌳 มัธยมศึกษาตอนปลาย (ม.4 - ม.6)</div>
+                <div class="edu-school">โรงเรียนพานทอง</div>
+                <div class="edu-detail">
+                    <p>สายการเรียน: [เช่น วิทย์-คณิต / ศิลป์-คำนวณ]</p>
+                    <p>เกรดเฉลี่ยสะสม (GPAX): X.XX</p>
                 </div>
             </div>
         </div>
 
-        <div style="text-align: center;">
+        <!-- ปุ่มกลับหน้าหลัก -->
+        <div class="btn-container">
             <a href="index.html" class="btn-back">⬅ กลับหน้าหลัก</a>
         </div>
 
         <footer>
-            <p>🌙 The Eisodusfolio 🌙</p>
+            <p>🌙 The Ekpaidefsifolio 🌙</p>
         </footer>
     </div>
+
+    <!-- สคริปต์สลับการแสดงผล -->
+    <script>
+        function openTab(tabName, element) {
+            // ซ่อนข้อมูลทุกอัน
+            const contents = document.querySelectorAll('.tab-content');
+            contents.forEach(content => content.classList.remove('active'));
+
+            // เอาสไตล์ปุ่ม active ออกจากทุกปุ่ม
+            const buttons = document.querySelectorAll('.tab-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+
+            // แสดงเนื้อหาของแท็บที่เลือก และเปลี่ยนปุ่มที่เลือกเป็น active
+            document.getElementById(tabName).classList.add('active');
+            element.classList.add('active');
+        }
+    </script>
 </body>
 </html>
