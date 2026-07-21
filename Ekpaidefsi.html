@@ -1,119 +1,24 @@
-<!DOCTYPE html>
-<html lang="th">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ekpaidefsi - ประวัติการศึกษา | นภรัท</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            background-image: url('https://raw.githubusercontent.com/Polk16373/ture-portfolio/main/images/Eisodus.jpg');
-            background-size: cover;
-            background-attachment: fixed;
-            background-position: center;
-            color: #ffffff;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            min-height: 100vh;
-            padding: 20px;
-            position: relative;
-        }
-
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(13, 8, 32, 0.4);
-            pointer-events: none;
-            z-index: 0;
-        }
-
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            position: relative;
-            z-index: 1;
-        }
-
-        header {
-            text-align: center;
-            margin-bottom: 30px;
-            padding: 30px 20px;
-            border: 3px solid #3a6fff;
-            border-radius: 15px;
-            background: rgba(13, 8, 32, 0.85);
-            box-shadow: 0 0 50px rgba(58, 111, 255, 0.4);
-        }
-
-        h1 {
-            font-size: 2.5em;
-            color: #ffffff;
-            margin-bottom: 10px;
-            text-shadow: 0 0 30px rgba(58, 111, 255, 0.8);
-            font-weight: 700;
-        }
-
-        .subtitle {
-            font-size: 1.1em;
-            color: #e0e8ff;
-            font-style: italic;
-        }
-
-        /* เมนูปุ่มเลือกแท็บระดับชั้น */
-        .tab-menu {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin-bottom: 30px;
-            flex-wrap: wrap;
-        }
-
-        .tab-btn {
-            background: rgba(13, 8, 32, 0.85);
-            color: #ffffff;
-            border: 2px solid #4d7fff;
-            padding: 12px 25px;
-            border-radius: 25px;
-            font-size: 1em;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 0 15px rgba(58, 111, 255, 0.2);
-        }
-
-        .tab-btn:hover {
-            border-color: #7c9fff;
-            box-shadow: 0 0 25px rgba(58, 111, 255, 0.5);
-            transform: translateY(-3px);
-        }
-
-        .tab-btn.active {
-            background: linear-gradient(135deg, #4d7fff, #7c9fff);
-            border-color: #a0c8ff;
-            box-shadow: 0 0 30px rgba(58, 111, 255, 0.7);
-        }
-
-        /* ส่วนแสดงเนื้อหา */
+/* ส่วนแสดงเนื้อหา */
         .content-box {
-            background: rgba(13, 8, 32, 0.85);
+            background: linear-gradient(rgba(13, 8, 32, 0.65), rgba(13, 8, 32, 0.65)), url('images/หยางหยาง.jpg');
+            background-size: cover;
+            background-position: center;
             border: 2px solid #4d7fff;
             border-radius: 15px;
-            padding: 40px;
+            padding: 40px 20px;
             box-shadow: 0 0 40px rgba(58, 111, 255, 0.3);
-            min-height: 250px;
+            min-height: 280px;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
-            overflow: hidden;
             position: relative;
+            transition: background 0.5s ease;
+        }
+
+        /* เมื่อมีการเลือกแท็บ ให้ซ่อนภาพพื้นหลังหยางหยาง แล้วกลับเป็นสีทึบปกติ */
+        .content-box.has-selected {
+            background: rgba(13, 8, 32, 0.85);
         }
 
         .tab-content {
@@ -124,15 +29,6 @@
 
         .tab-content.active {
             display: block;
-        }
-
-        /* ตกแต่งหน้า Default ให้มีรูปพื้นหลัง */
-        #default-msg {
-            padding: 60px 20px;
-            background: linear-gradient(rgba(13, 8, 32, 0.65), rgba(13, 8, 32, 0.65)), url('images/หยางหยาง.jpg');
-            background-size: cover;
-            background-position: center;
-            border-radius: 10px;
         }
 
         @keyframes fadeIn {
@@ -163,115 +59,3 @@
             margin-top: 10px;
             object-fit: contain;
         }
-
-        /* ปุ่มกลับหน้าหลัก */
-        .btn-container {
-            text-align: center;
-            margin-top: 30px;
-        }
-
-        .btn-back {
-            background: linear-gradient(135deg, #4d7fff, #7c9fff);
-            color: #ffffff;
-            border: 1px solid #4d7fff;
-            padding: 12px 35px;
-            border-radius: 8px;
-            font-size: 1em;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.4s ease;
-            box-shadow: 0 0 25px rgba(58, 111, 255, 0.4);
-            text-decoration: none;
-            display: inline-block;
-        }
-
-        .btn-back:hover {
-            background: linear-gradient(135deg, #7c9fff, #a0c8ff);
-            box-shadow: 0 0 40px rgba(58, 111, 255, 0.6);
-            transform: translateY(-3px);
-        }
-
-        footer {
-            text-align: center;
-            margin-top: 50px;
-            padding: 20px;
-            border-top: 2px solid #4d7fff;
-            color: #e0e8ff;
-            font-style: italic;
-            text-shadow: 0 0 15px rgba(58, 111, 255, 0.5);
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <header>
-            <h1>🌌 Ekpaidefsi 🌌</h1>
-            <p class="subtitle">ประวัติการศึกษา</p>
-        </header>
-
-        <!-- เมนูปุ่มเลือก -->
-        <div class="tab-menu">
-            <button class="tab-btn" onclick="openTab('primary', this)">🌱 ประถมศึกษา</button>
-            <button class="tab-btn" onclick="openTab('junior', this)">🌿 มัธยมศึกษาตอนต้น</button>
-            <button class="tab-btn" onclick="openTab('senior', this)">🌳 มัธยมศึกษาตอนปลาย</button>
-        </div>
-
-        <!-- กรอบแสดงเนื้อหา -->
-        <div class="content-box">
-            <!-- ข้อความเริ่มต้นก่อนกดเลือก (พร้อมภาพพื้นหลัง หยางหยาง.jpg และมือชี้ขึ้น) -->
-            <div id="default-msg" class="tab-content active">
-                <p style="font-size: 1.25em; color: #ffffff; text-shadow: 0 0 10px rgba(0,0,0,0.8); font-weight: 600;">
-                    👆 กรุณากดเลือกช่วงระดับชั้นที่ต้องการดูข้อมูลจากปุ่มด้านบนครับ
-                </p>
-            </div>
-
-            <!-- ประถมศึกษา -->
-            <div id="primary" class="tab-content">
-                <div class="edu-title">🌱 ประถมศึกษา (ป.1 - ป.6)</div>
-                <div class="edu-school">โรงเรียน... [กรอกชื่อโรงเรียนประถมที่นี่]</div>
-                <img src="images/ใบเกรดสมมุติ.jpg" alt="ใบเกรดประถมศึกษา" class="edu-img">
-            </div>
-
-            <!-- มัธยมศึกษาตอนต้น -->
-            <div id="junior" class="tab-content">
-                <div class="edu-title">🌿 มัธยมศึกษาตอนต้น (ม.1 - ม.3)</div>
-                <div class="edu-school">โรงเรียนพานทอง</div>
-                <img src="images/ใบเกรดสมมุติ.jpg" alt="ใบเกรดมัธยมศึกษาตอนต้น" class="edu-img">
-            </div>
-
-            <!-- มัธยมศึกษาตอนปลาย -->
-            <div id="senior" class="tab-content">
-                <div class="edu-title">🌳 มัธยมศึกษาตอนปลาย (ม.4 - ม.6)</div>
-                <div class="edu-school">โรงเรียนพานทอง</div>
-                <img src="images/ใบเกรดสมมุติ.jpg" alt="ใบเกรดมัธยมศึกษาตอนปลาย" class="edu-img">
-            </div>
-        </div>
-
-        <!-- ปุ่มกลับหน้าหลัก -->
-        <div class="btn-container">
-            <a href="index.html" class="btn-back">⬅ กลับหน้าหลัก</a>
-        </div>
-
-        <footer>
-            <p>🌙 The Ekpaidefsifolio 🌙</p>
-        </footer>
-    </div>
-
-    <!-- สคริปต์สลับการแสดงผล -->
-    <script>
-        function openTab(tabName, element) {
-            // ซ่อนข้อมูลทุกอัน
-            const contents = document.querySelectorAll('.tab-content');
-            contents.forEach(content => content.classList.remove('active'));
-
-            // เอาสไตล์ปุ่ม active ออกจากทุกปุ่ม
-            const buttons = document.querySelectorAll('.tab-btn');
-            buttons.forEach(btn => btn.classList.remove('active'));
-
-            // แสดงเนื้อหาของแท็บที่เลือก และเปลี่ยนปุ่มที่เลือกเป็น active
-            document.getElementById(tabName).classList.add('active');
-            element.classList.add('active');
-        }
-    </script>
-</body>
-</html>
