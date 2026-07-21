@@ -104,7 +104,7 @@
         .content-box {
             background: linear-gradient(rgba(13, 8, 32, 0.5), rgba(13, 8, 32, 0.5)), url('images/หยางหยาง.jpg');
             background-size: cover;
-            background-position: top center; /* ปรับจัดตำแหน่งเน้นให้เห็นด้านบนของภาพ */
+            background-position: top center;
             border: 2px solid #4d7fff;
             border-radius: 15px;
             padding: 40px 20px;
@@ -118,7 +118,6 @@
             transition: background 0.5s ease;
         }
 
-        /* เมื่อกดเลือกแท็บ ให้ซ่อนรูปพื้นหลังหยางหยางแล้วกลับเป็นสีพื้นหลังปกติ */
         .content-box.has-selected {
             background: rgba(13, 8, 32, 0.85);
         }
@@ -160,6 +159,52 @@
             box-shadow: 0 0 25px rgba(58, 111, 255, 0.4);
             margin-top: 10px;
             object-fit: contain;
+            cursor: pointer;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .edu-img:hover {
+            transform: scale(1.02);
+            border-color: #a0c8ff;
+            box-shadow: 0 0 35px rgba(58, 111, 255, 0.7);
+        }
+
+        /* Modal ซูมรูปภาพเต็มจอ */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 999;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(5, 2, 15, 0.9);
+            justify-content: center;
+            align-items: center;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .modal-content {
+            max-width: 90%;
+            max-height: 85vh;
+            border: 2px solid #7c9fff;
+            border-radius: 10px;
+            box-shadow: 0 0 50px rgba(58, 111, 255, 0.8);
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 20px;
+            right: 35px;
+            color: #ffffff;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .close-btn:hover {
+            color: #7c9fff;
         }
 
         /* ปุ่มกลับหน้าหลัก */
@@ -227,21 +272,21 @@
             <div id="primary" class="tab-content">
                 <div class="edu-title">🌱 ประถมศึกษา (ป.1 - ป.6)</div>
                 <div class="edu-school">โรงเรียน... [กรอกชื่อโรงเรียนประถมที่นี่]</div>
-                <img src="images/ใบเกรดสมมุติ.jpg" alt="ใบเกรดประถมศึกษา" class="edu-img">
+                <img src="images/ใบเกรดสมมุติ.jpg" alt="ใบเกรดประถมศึกษา" class="edu-img" onclick="openModal(this.src)">
             </div>
 
             <!-- มัธยมศึกษาตอนต้น -->
             <div id="junior" class="tab-content">
                 <div class="edu-title">🌿 มัธยมศึกษาตอนต้น (ม.1 - ม.3)</div>
                 <div class="edu-school">โรงเรียนพานทอง</div>
-                <img src="images/ใบเกรดสมมุติ.jpg" alt="ใบเกรดมัธยมศึกษาตอนต้น" class="edu-img">
+                <img src="images/ใบเกรดสมมุติ.jpg" alt="ใบเกรดมัธยมศึกษาตอนต้น" class="edu-img" onclick="openModal(this.src)">
             </div>
 
             <!-- มัธยมศึกษาตอนปลาย -->
             <div id="senior" class="tab-content">
                 <div class="edu-title">🌳 มัธยมศึกษาตอนปลาย (ม.4 - ม.6)</div>
                 <div class="edu-school">โรงเรียนพานทอง</div>
-                <img src="images/ใบเกรดสมมุติ.jpg" alt="ใบเกรดมัธยมศึกษาตอนปลาย" class="edu-img">
+                <img src="images/ใบเกรดสมมุติ.jpg" alt="ใบเกรดมัธยมศึกษาตอนปลาย" class="edu-img" onclick="openModal(this.src)">
             </div>
         </div>
 
@@ -255,23 +300,36 @@
         </footer>
     </div>
 
-    <!-- สคริปต์สลับการแสดงผล -->
+    <!-- Modal ซูมรูปภาพ -->
+    <div id="imgModal" class="modal" onclick="closeModal()">
+        <span class="close-btn" onclick="closeModal()">&times;</span>
+        <img class="modal-content" id="fullImg">
+    </div>
+
+    <!-- สคริปต์สลับการแสดงผล และซูมรูปภาพ -->
     <script>
         function openTab(tabName, element) {
-            // เอาพื้นหลังภาพออกเมื่อกดเลือกแท็บ
             document.getElementById('contentBox').classList.add('has-selected');
 
-            // ซ่อนข้อมูลทุกอัน
             const contents = document.querySelectorAll('.tab-content');
             contents.forEach(content => content.classList.remove('active'));
 
-            // เอาสไตล์ปุ่ม active ออกจากทุกปุ่ม
             const buttons = document.querySelectorAll('.tab-btn');
             buttons.forEach(btn => btn.classList.remove('active'));
 
-            // แสดงเนื้อหาของแท็บที่เลือก และเปลี่ยนปุ่มที่เลือกเป็น active
             document.getElementById(tabName).classList.add('active');
             element.classList.add('active');
+        }
+
+        function openModal(src) {
+            const modal = document.getElementById('imgModal');
+            const fullImg = document.getElementById('fullImg');
+            modal.style.display = 'flex';
+            fullImg.src = src;
+        }
+
+        function closeModal() {
+            document.getElementById('imgModal').style.display = 'none';
         }
     </script>
 </body>
