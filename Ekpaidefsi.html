@@ -112,6 +112,8 @@
             align-items: center;
             justify-content: center;
             text-align: center;
+            overflow: hidden;
+            position: relative;
         }
 
         .tab-content {
@@ -122,6 +124,15 @@
 
         .tab-content.active {
             display: block;
+        }
+
+        /* ตกแต่งหน้า Default ให้มีรูปพื้นหลัง */
+        #default-msg {
+            padding: 60px 20px;
+            background: linear-gradient(rgba(13, 8, 32, 0.65), rgba(13, 8, 32, 0.65)), url('images/หยางหยาง.jpg');
+            background-size: cover;
+            background-position: center;
+            border-radius: 10px;
         }
 
         @keyframes fadeIn {
@@ -139,14 +150,18 @@
         .edu-school {
             font-size: 1.3em;
             color: #ffffff;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
             font-weight: bold;
         }
 
-        .edu-detail {
-            color: #e0e8ff;
-            font-size: 1.05em;
-            line-height: 1.8;
+        .edu-img {
+            max-width: 100%;
+            max-height: 450px;
+            border-radius: 10px;
+            border: 2px solid #4d7fff;
+            box-shadow: 0 0 25px rgba(58, 111, 255, 0.4);
+            margin-top: 10px;
+            object-fit: contain;
         }
 
         /* ปุ่มกลับหน้าหลัก */
@@ -203,39 +218,32 @@
 
         <!-- กรอบแสดงเนื้อหา -->
         <div class="content-box">
-            <!-- ข้อความเริ่มต้นก่อนกดเลือก -->
+            <!-- ข้อความเริ่มต้นก่อนกดเลือก (พร้อมภาพพื้นหลัง หยางหยาง.jpg และมือชี้ขึ้น) -->
             <div id="default-msg" class="tab-content active">
-                <p style="font-size: 1.2em; color: #a0c8ff;">👈 กรุณากดเลือกช่วงระดับชั้นที่ต้องการดูข้อมูลจากปุ่มด้านบนครับ</p>
+                <p style="font-size: 1.25em; color: #ffffff; text-shadow: 0 0 10px rgba(0,0,0,0.8); font-weight: 600;">
+                    👆 กรุณากดเลือกช่วงระดับชั้นที่ต้องการดูข้อมูลจากปุ่มด้านบนครับ
+                </p>
             </div>
 
             <!-- ประถมศึกษา -->
             <div id="primary" class="tab-content">
                 <div class="edu-title">🌱 ประถมศึกษา (ป.1 - ป.6)</div>
                 <div class="edu-school">โรงเรียน... [กรอกชื่อโรงเรียนประถมที่นี่]</div>
-                <div class="edu-detail">
-                    <p>ปีการศึกษา: 25XX - 25XX</p>
-                    <p>รายละเอียดเพิ่มเติม หรือผลงานเด่นในช่วงประถม</p>
-                </div>
+                <img src="images/ใบเกรดสมมุติ.jpg" alt="ใบเกรดประถมศึกษา" class="edu-img">
             </div>
 
             <!-- มัธยมศึกษาตอนต้น -->
             <div id="junior" class="tab-content">
                 <div class="edu-title">🌿 มัธยมศึกษาตอนต้น (ม.1 - ม.3)</div>
                 <div class="edu-school">โรงเรียนพานทอง</div>
-                <div class="edu-detail">
-                    <p>ปีการศึกษา: 25XX - 25XX</p>
-                    <p>รายละเอียดเพิ่มเติม / แผนการเรียน</p>
-                </div>
+                <img src="images/ใบเกรดสมมุติ.jpg" alt="ใบเกรดมัธยมศึกษาตอนต้น" class="edu-img">
             </div>
 
             <!-- มัธยมศึกษาตอนปลาย -->
             <div id="senior" class="tab-content">
                 <div class="edu-title">🌳 มัธยมศึกษาตอนปลาย (ม.4 - ม.6)</div>
                 <div class="edu-school">โรงเรียนพานทอง</div>
-                <div class="edu-detail">
-                    <p>สายการเรียน: [เช่น วิทย์-คณิต / ศิลป์-คำนวณ]</p>
-                    <p>เกรดเฉลี่ยสะสม (GPAX): X.XX</p>
-                </div>
+                <img src="images/ใบเกรดสมมุติ.jpg" alt="ใบเกรดมัธยมศึกษาตอนปลาย" class="edu-img">
             </div>
         </div>
 
