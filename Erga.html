@@ -222,7 +222,7 @@
             font-size: 0.85em;
         }
 
-        /* ปุ่มกลับหน้าหลัก */
+        /* 🔘 ปุ่มย้อนกลับด้านล่าง */
         .btn-container {
             text-align: center;
             margin-top: 35px;
@@ -340,9 +340,9 @@
 
         </main>
 
-        <!-- ปุ่มกลับหน้าหลัก -->
+        <!-- 🔘 ปุ่มย้อนกลับ (ปรับเปลี่ยนข้อความและแอคชันอัตโนมัติ) -->
         <div class="btn-container">
-            <a href="index.html" class="btn-back">⬅ กลับหน้าหลัก</a>
+            <button id="dynamic-back-btn" class="btn-back" onclick="handleBackAction()">⬅ กลับหน้าหลัก</button>
         </div>
 
         <footer>
@@ -351,10 +351,14 @@
     </div>
 
     <script>
+        let currentCategory = 'all';
+
         // ฟังก์ชันสลับหมวดหมู่
         function filterCategory(category) {
+            currentCategory = category;
             const cards = document.querySelectorAll('.project-card');
             const buttons = document.querySelectorAll('.tab-btn');
+            const backBtn = document.getElementById('dynamic-back-btn');
 
             // 1. เปลี่ยนสถานะปุ่ม Tab ด้านบน
             buttons.forEach(btn => btn.classList.remove('active'));
@@ -369,12 +373,31 @@
                     card.style.display = 'none';
                 }
             });
+
+            // 3. เปลี่ยนข้อความบนปุ่มย้อนกลับตามหมวดหมู่ที่เลือก
+            if (category === 'all') {
+                backBtn.textContent = '⬅ กลับหน้าหลัก';
+            } else {
+                backBtn.textContent = '⬅ ผลงานทั้งหมด';
+            }
         }
 
-        // ฟังก์ชันเมื่อกดที่ตัวการ์ด ให้พุ่งไปที่หมวดหมู่นั้นแล้วเลื่อนจอขึ้นไปแบบนุ่มนวล
+        // ฟังก์ชันจัดการเมื่อกดปุ่มย้อนกลับด้านล่าง
+        function handleBackAction() {
+            if (currentCategory === 'all') {
+                // หากอยู่ที่ "ผลงานทั้งหมด" ให้กลับไปหน้าแรกสุด (index.html)
+                window.location.href = 'index.html';
+            } else {
+                // หากอยู่ที่หมวดหมู่อย่างอื่น ให้ย้อนกลับมาที่ "ผลงานทั้งหมด"
+                filterCategory('all');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        }
+
+        // ฟังก์ชันเมื่อกดที่ตัวการ์ด ให้พุ่งไปที่หมวดหมู่นั้น
         function goToCategory(category) {
             filterCategory(category);
-            window.scrollTo({ top: 100, behavior: 'smooth' });
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
     </script>
 </body>
