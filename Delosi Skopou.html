@@ -1,1 +1,310 @@
-.
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delosi Skopou - คำแถลงจุดประสงค์ | นภรัท</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-image: url('https://raw.githubusercontent.com/Polk16373/ture-portfolio/main/images/Eisodus.jpg');
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
+            color: #ffffff;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            min-height: 100vh;
+            padding: 20px;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(13, 8, 32, 0.55);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 30px 20px;
+            border: 3px solid #3a6fff;
+            border-radius: 15px;
+            background: rgba(13, 8, 32, 0.85);
+            box-shadow: 0 0 50px rgba(58, 111, 255, 0.4);
+        }
+
+        h1 {
+            font-size: 2.3em;
+            color: #ffffff;
+            margin-bottom: 10px;
+            text-shadow: 0 0 30px rgba(58, 111, 255, 0.8);
+            font-weight: 700;
+        }
+
+        .subtitle {
+            font-size: 1.1em;
+            color: #e0e8ff;
+            font-style: italic;
+        }
+
+        /* กรอบแสดงบทความ SOP */
+        .sop-card {
+            background: rgba(13, 8, 32, 0.88);
+            border: 2px solid #4d7fff;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 0 40px rgba(58, 111, 255, 0.35);
+            line-height: 1.85;
+            font-size: 1.1em;
+            color: #e8eeff;
+            text-align: justify;
+        }
+
+        .sop-quote {
+            background: rgba(58, 111, 255, 0.15);
+            border-left: 4px solid #7c9fff;
+            padding: 15px 20px;
+            margin: 20px 0;
+            border-radius: 0 10px 10px 0;
+            font-style: italic;
+            color: #a0c8ff;
+            font-weight: 600;
+            text-shadow: 0 0 10px rgba(58, 111, 255, 0.4);
+        }
+
+        .sop-paragraph {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        /* ส่วนแสดงรูปภาพพรีวิว */
+        .image-section {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px dashed rgba(77, 127, 255, 0.4);
+        }
+
+        .img-title {
+            font-size: 1.2em;
+            color: #7c9fff;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+
+        .preview-img-container {
+            display: inline-block;
+            position: relative;
+            cursor: pointer;
+            overflow: hidden;
+            border-radius: 12px;
+            border: 2px solid #4d7fff;
+            box-shadow: 0 0 30px rgba(58, 111, 255, 0.4);
+            transition: all 0.3s ease;
+        }
+
+        .preview-img-container:hover {
+            transform: scale(1.03);
+            border-color: #a0c8ff;
+            box-shadow: 0 0 45px rgba(58, 111, 255, 0.7);
+        }
+
+        .sop-img {
+            max-width: 100%;
+            max-height: 350px;
+            display: block;
+            object-fit: cover;
+        }
+
+        .img-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(13, 8, 32, 0.6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            color: #ffffff;
+            font-weight: bold;
+            font-size: 1.1em;
+            text-shadow: 0 0 10px rgba(0,0,0,0.8);
+        }
+
+        .preview-img-container:hover .img-overlay {
+            opacity: 1;
+        }
+
+        /* Modal ซูมรูปภาพเต็มจอ */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 999;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(5, 2, 15, 0.92);
+            justify-content: center;
+            align-items: center;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .modal-content {
+            max-width: 90%;
+            max-height: 85vh;
+            border: 2px solid #7c9fff;
+            border-radius: 10px;
+            box-shadow: 0 0 50px rgba(58, 111, 255, 0.8);
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 20px;
+            right: 35px;
+            color: #ffffff;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .close-btn:hover {
+            color: #7c9fff;
+        }
+
+        /* ปุ่มกลับหน้าหลัก */
+        .btn-container {
+            text-align: center;
+            margin-top: 35px;
+        }
+
+        .btn-back {
+            background: linear-gradient(135deg, #4d7fff, #7c9fff);
+            color: #ffffff;
+            border: 1px solid #4d7fff;
+            padding: 12px 35px;
+            border-radius: 8px;
+            font-size: 1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            box-shadow: 0 0 25px rgba(58, 111, 255, 0.4);
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-back:hover {
+            background: linear-gradient(135deg, #7c9fff, #a0c8ff);
+            box-shadow: 0 0 40px rgba(58, 111, 255, 0.6);
+            transform: translateY(-3px);
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 20px;
+            border-top: 2px solid #4d7fff;
+            color: #e0e8ff;
+            font-style: italic;
+            text-shadow: 0 0 15px rgba(58, 111, 255, 0.5);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🌌 Delosi Skopou 🌌</h1>
+            <p class="subtitle">คำแถลงจุดประสงค์การเรียนรู้ (Statement of Purpose)</p>
+        </header>
+
+        <!-- กรอบเนื้อหา -->
+        <main class="sop-card">
+            <p class="sop-paragraph">
+                เหตุผลที่ผมมาเรียนที่นี่ และต้องเป็นคณะนี้ สาขานี้ เพราะว่าผมมีความสนใจในด้าน <strong>ฟิสิกส์ดาราศาสตร์ (Astrophysics)</strong> เป็นพิเศษ ผลงานที่ผมทุ่มเทแรงใจและแรงสมองมากที่สุดในช่วงมัธยมศึกษาตอนปลาย คือการศึกษาและพยายามทำความเข้าใจเกี่ยวกับ <strong>หลุมดำ (Black Hole)</strong>
+            </p>
+
+            <p class="sop-paragraph">
+                ผมใช้รูปแบบทางคณิตศาสตร์ในเรื่องของเศษส่วน เพื่อโต้แย้งและไม่เชื่อแค่เพียงว่าแกนของหลุมดำมีค่าเป็นอนันต์ ซึ่งผิดจากมาตรฐานที่ควรจะเป็น โดยพระเอกของงานวิจัยนี้คือการนำค่าความยาวมัคส์ พลังค์ (Max Planck) ซึ่งเป็นความยาวที่เล็กที่สุดมาใช้คำนวณ แทนการแทนค่าพื้นที่เป็น 0 ตรงๆ
+            </p>
+
+            <div class="sop-quote">
+                "สิ่งที่ทำไม่ได้ในตอนนี้ไม่ได้หมายความว่าทำไม่ได้ เพียงแค่ว่าเรายังหาวิธีไม่เจอ"
+            </div>
+
+            <p class="sop-paragraph">
+                ในตอนแรก ผลลัพธ์ที่ออกมามันค่อนข้างผิดธรรมชาติและขัดกับทฤษฎีไปหมด แต่เพราะผมเชื่อมั่นในแนวคิดนี้ ผมจึงไม่ยอมแพ้และพยายามพิสูจน์ จนกระทั่งผลการคำนวณออกมาประสบความสำเร็จในที่สุด
+            </p>
+
+            <p class="sop-paragraph">
+                สุดท้ายนี้ แม้ผมอาจจะยังไม่มีความรู้ในด้านกลศาสตร์ควอนตัมมากนัก แต่มหาวิทยาลัยแห่งนี้จะเป็นเหมือนข้อมูลชุดใหม่ที่ทำให้ผมได้ก้าวข้ามขีดจำกัดของตัวเองอีกครั้ง และแน่นอนครับ ผมจะไม่หยุดอยู่แค่ที่นี่ หากได้รับโอกาสและทุนศึกษาต่อต่างประเทศ ผมพร้อมที่จะก้าวต่อไปเพื่อวิจัยและไขปริศนาของจักรวาลนี้ให้อย่างถูกต้องที่สุดครับ ขอบคุณครับ
+            </p>
+
+            <!-- ส่วนรูปภาพประกอบ -->
+            <div class="image-section">
+                <div class="img-title">🔬 ภาพประกอบงานวิจัยเกี่ยวกับหลุมดำ</div>
+                <div class="preview-img-container" onclick="openModal('images/หลุมดำ.jpg')">
+                    <img src="images/หลุมดำ.jpg" alt="งานวิจัยหลุมดำ" class="sop-img">
+                    <div class="img-overlay">🔍 คลิกเพื่อดูรูปภาพขนาดใหญ่</div>
+                </div>
+            </div>
+        </main>
+
+        <!-- ปุ่มกลับหน้าหลัก -->
+        <div class="btn-container">
+            <a href="index.html" class="btn-back">⬅ กลับหน้าหลัก</a>
+        </div>
+
+        <footer>
+            <p>🌙 The Delosi Skopou 🌙</p>
+        </footer>
+    </div>
+
+    <!-- Modal ซูมรูปภาพ -->
+    <div id="imgModal" class="modal" onclick="closeModal()">
+        <span class="close-btn" onclick="closeModal()">&times;</span>
+        <img class="modal-content" id="fullImg" onclick="event.stopPropagation()">
+    </div>
+
+    <!-- สคริปต์ซูมรูปภาพ -->
+    <script>
+        function openModal(src) {
+            const modal = document.getElementById('imgModal');
+            const fullImg = document.getElementById('fullImg');
+            modal.style.display = 'flex';
+            fullImg.src = src;
+        }
+
+        function closeModal() {
+            document.getElementById('imgModal').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
