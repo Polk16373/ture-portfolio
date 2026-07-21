@@ -303,7 +303,7 @@
     <!-- Modal ซูมรูปภาพ -->
     <div id="imgModal" class="modal" onclick="closeModal()">
         <span class="close-btn" onclick="closeModal()">&times;</span>
-        <img class="modal-content" id="fullImg">
+        <img class="modal-content" id="fullImg" onclick="event.stopPropagation()">
     </div>
 
     <!-- สคริปต์สลับการแสดงผล และซูมรูปภาพ -->
