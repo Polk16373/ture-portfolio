@@ -44,7 +44,7 @@
 
         header {
             text-align: center;
-            margin-bottom: 30px;
+            margin-bottom: 25px;
             padding: 30px 20px;
             border: 3px solid #3a6fff;
             border-radius: 15px;
@@ -71,7 +71,7 @@
             display: flex;
             justify-content: center;
             gap: 15px;
-            margin-bottom: 30px;
+            margin-bottom: 20px;
             flex-wrap: wrap;
         }
 
@@ -86,9 +86,6 @@
             cursor: pointer;
             transition: all 0.3s ease;
             box-shadow: 0 0 15px rgba(58, 111, 255, 0.2);
-            display: flex;
-            align-items: center;
-            gap: 8px;
         }
 
         .tab-btn:hover {
@@ -102,6 +99,30 @@
             border-color: #a0c8ff;
             color: #ffffff;
             box-shadow: 0 0 30px rgba(58, 111, 255, 0.7);
+        }
+
+        /* 📝 กล่องคำอธิบายประจำหมวดหมู่ */
+        .category-desc-box {
+            display: none;
+            background: rgba(20, 15, 45, 0.9);
+            border: 2px dashed #7c9fff;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 25px;
+            color: #dce6ff;
+            line-height: 1.6;
+            animation: fadeIn 0.4s ease;
+            box-shadow: 0 0 30px rgba(58, 111, 255, 0.3);
+        }
+
+        .category-desc-box.active {
+            display: block;
+        }
+
+        .category-desc-box h3 {
+            color: #7c9fff;
+            margin-bottom: 8px;
+            font-size: 1.2em;
         }
 
         /* 🎴 การ์ดแสดงผลงาน */
@@ -122,6 +143,7 @@
             gap: 20px;
             animation: fadeIn 0.4s ease;
             transition: all 0.3s ease;
+            cursor: pointer; /* เมาส์เป็นรูปมือ ชี้แจ้งว่ากดคลิกเปิดได้ */
         }
 
         @media (min-width: 768px) {
@@ -136,10 +158,10 @@
 
         .project-card:hover {
             border-color: #7c9fff;
-            box-shadow: 0 0 50px rgba(58, 111, 255, 0.5);
+            box-shadow: 0 0 50px rgba(58, 111, 255, 0.6);
+            transform: translateY(-5px);
         }
 
-        /* โหมดเน้นงานวิจัยหลัก (Featured) */
         .project-card.featured {
             border: 3px solid #7c9fff;
             background: rgba(18, 11, 45, 0.92);
@@ -155,39 +177,36 @@
             border-radius: 12px;
             font-weight: bold;
             margin-bottom: 5px;
-            text-shadow: 0 0 5px rgba(0,0,0,0.5);
         }
 
-        /* 🖼️ ปรับขนาดกรอบภาพให้เท่ากันเป๊ะทุกใบ */
         .project-img-box {
             position: relative;
             border-radius: 10px;
             overflow: hidden;
             border: 2px solid #4d7fff;
             width: 100%;
-            max-width: 300px; /* กำหนดความกว้างมาตรฐาน */
-            height: 200px;    /* กำหนดความสูงมาตรฐาน */
-            flex-shrink: 0;   /* ป้องกันไม่ให้รูปโดนบีบขนาด */
-            cursor: pointer;
+            max-width: 300px;
+            height: 200px;
+            flex-shrink: 0;
             margin: 0 auto;
         }
 
         .featured .project-img-box {
             max-width: 100%;
-            height: 260px; /* การ์ด Highlight ใหญ่กว่าเล็กน้อย */
+            height: 260px;
         }
 
         .project-img {
             width: 100%;
             height: 100%;
-            object-fit: cover; /* ครอบตัดภาพให้อยู่ในกรอบอย่างสวยงาม ไม่บิดเบี้ยว */
+            object-fit: cover;
             object-position: center;
             display: block;
             transition: transform 0.3s ease;
         }
 
-        .project-img-box:hover .project-img {
-            transform: scale(1.05);
+        .project-card:hover .project-img {
+            transform: scale(1.03);
         }
 
         .project-info {
@@ -264,44 +283,6 @@
             text-shadow: 0 0 15px rgba(58, 111, 255, 0.5);
         }
 
-        /* Modal ซูมรูปภาพ */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 999;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(5, 2, 15, 0.92);
-            justify-content: center;
-            align-items: center;
-            animation: fadeIn 0.3s ease;
-        }
-
-        .modal-content {
-            max-width: 90%;
-            max-height: 85vh;
-            border: 2px solid #7c9fff;
-            border-radius: 10px;
-            box-shadow: 0 0 50px rgba(58, 111, 255, 0.8);
-        }
-
-        .close-btn {
-            position: absolute;
-            top: 20px;
-            right: 35px;
-            color: #ffffff;
-            font-size: 40px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: color 0.3s ease;
-        }
-
-        .close-btn:hover {
-            color: #7c9fff;
-        }
-
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(10px); }
             to { opacity: 1; transform: translateY(0); }
@@ -315,19 +296,35 @@
             <p class="subtitle">ผลงาน โครงงาน และการฝึกฝน (Projects & Achievements)</p>
         </header>
 
-        <!-- 🔘 ปุ่มสลับหมวดหมู่ -->
+        <!-- 🔘 ปุ่มเลือกหมวดหมู่ -->
         <div class="category-container">
-            <button class="tab-btn active" onclick="filterCategory('all', this)">✨ ผลงานทั้งหมด</button>
-            <button class="tab-btn" onclick="filterCategory('research', this)">🌌 งานวิจัยหลุมดำ</button>
-            <button class="tab-btn" onclick="filterCategory('science', this)">🧪 Science Show</button>
-            <button class="tab-btn" onclick="filterCategory('sports', this)">🥋 เทควันโด & วินัย</button>
+            <button class="tab-btn active" id="btn-all" onclick="filterCategory('all')">✨ ผลงานทั้งหมด</button>
+            <button class="tab-btn" id="btn-research" onclick="filterCategory('research')">🌌 งานวิจัยหลุมดำ</button>
+            <button class="tab-btn" id="btn-science" onclick="filterCategory('science')">🧪 Science Show</button>
+            <button class="tab-btn" id="btn-sports" onclick="filterCategory('sports')">🥋 เทควันโด & วินัย</button>
+        </div>
+
+        <!-- 📝 พื้นที่กล่องคำอธิบายประจำหมวดหมู่ (แสดงเมื่อเข้าหมวดนั้นๆ) -->
+        <div id="desc-research" class="category-desc-box">
+            <h3>🌌 หมวดหมู่งานวิจัยหลุมดำ (Astrophysics Research)</h3>
+            <p>รวมรวมผลงานการศึกษาวิจัยเชิงทฤษฎีทางดาราศาสตร์ฟิสิกส์ การวิเคราะห์สมการทางคณิตศาสตร์ และแบบจำลองทางฟิสิกส์ดั้งเดิมเปรียบเทียบกับฟิสิกส์ควอนตัม (อนาคตสามารถพิมพ์อธิบายเพิ่มตรงนี้ได้ยาวๆ เลยครับ)</p>
+        </div>
+
+        <div id="desc-science" class="category-desc-box">
+            <h3>🧪 หมวดหมู่ Science Show (การสื่อสารวิทยาศาสตร์)</h3>
+            <p>รวมกิจกรรมการแข่งขันการแสดงทางวิทยาศาสตร์ การถ่ายทอดความรู้เชิงลึกให้ออกมาเข้าใจง่าย และกิจกรรมที่ส่งเสริมทักษะการสื่อสารในสาธารณะ</p>
+        </div>
+
+        <div id="desc-sports" class="category-desc-box">
+            <h3>🥋 หมวดหมู่เทควันโด & การฝึกฝนตนเอง (Discipline & Sports)</h3>
+            <p>การฝึกฝนทักษะการต่อสู้ ศิลปะป้องกันตัว เพื่อเสริมสร้างระเบียบวินัย สมาธิ สภาพจิตใจที่เข้มแข็ง และความอดทนต่อแรงกดดัน</p>
         </div>
 
         <!-- 🎴 รายการผลงาน -->
         <main class="portfolio-grid">
 
-            <!-- Card 1: งานวิจัยหลุมดำ (Featured Card) -->
-            <div class="project-card featured" data-category="research">
+            <!-- Card 1: งานวิจัยหลุมดำ (กดแล้วย้ายไปหมวด research ทันที) -->
+            <div class="project-card featured" data-category="research" onclick="goToCategory('research')">
                 <span class="badge-featured">⭐ Highlight Project</span>
                 <div class="project-info">
                     <h2 class="project-title">🌌 งานวิจัยทฤษฎีภาวะเอกฐานของหลุมดำ (Planck Length Model)</h2>
@@ -340,14 +337,14 @@
                         <span class="tag">Mathematics</span>
                     </div>
                 </div>
-                <div class="project-img-box" onclick="openModal('images/หลุมดำ.jpg')">
+                <div class="project-img-box">
                     <img src="images/หลุมดำ.jpg" alt="งานวิจัยหลุมดำ" class="project-img">
                 </div>
             </div>
 
-            <!-- Card 2: Science Show -->
-            <div class="project-card" data-category="science">
-                <div class="project-img-box" onclick="openModal('images/วิทย์สมมุติ.jpg')">
+            <!-- Card 2: Science Show (กดแล้วย้ายไปหมวด science ทันที) -->
+            <div class="project-card" data-category="science" onclick="goToCategory('science')">
+                <div class="project-img-box">
                     <img src="images/วิทย์สมมุติ.jpg" alt="Science Show" class="project-img">
                 </div>
                 <div class="project-info">
@@ -363,9 +360,9 @@
                 </div>
             </div>
 
-            <!-- Card 3: เทควันโด -->
-            <div class="project-card" data-category="sports">
-                <div class="project-img-box" onclick="openModal('images/เทควันโด.jpeg')">
+            <!-- Card 3: เทควันโด (กดแล้วย้ายไปหมวด sports ทันที) -->
+            <div class="project-card" data-category="sports" onclick="goToCategory('sports')">
+                <div class="project-img-box">
                     <img src="images/เทควันโด.jpeg" alt="เทควันโด" class="project-img">
                 </div>
                 <div class="project-info">
@@ -393,21 +390,19 @@
         </footer>
     </div>
 
-    <!-- Modal ซูมรูปภาพ -->
-    <div id="imgModal" class="modal" onclick="closeModal()">
-        <span class="close-btn" onclick="closeModal()">&times;</span>
-        <img class="modal-content" id="fullImg" onclick="event.stopPropagation()">
-    </div>
-
     <script>
-        // ระบบกรองหมวดหมู่
-        function filterCategory(category, btnElement) {
+        // ฟังก์ชันสลับหมวดหมู่
+        function filterCategory(category) {
             const cards = document.querySelectorAll('.project-card');
             const buttons = document.querySelectorAll('.tab-btn');
+            const descBoxes = document.querySelectorAll('.category-desc-box');
 
+            // 1. เปลี่ยนสถานะปุ่ม Tab ด้านบน
             buttons.forEach(btn => btn.classList.remove('active'));
-            btnElement.classList.add('active');
+            const activeBtn = document.getElementById('btn-' + category);
+            if(activeBtn) activeBtn.classList.add('active');
 
+            // 2. ซ่อน/แสดง การ์ดผลงาน
             cards.forEach(card => {
                 if (category === 'all' || card.getAttribute('data-category') === category) {
                     card.style.display = 'flex';
@@ -415,18 +410,19 @@
                     card.style.display = 'none';
                 }
             });
+
+            // 3. ซ่อน/แสดง กล่องคำอธิบายหมวดหมู่
+            descBoxes.forEach(box => box.classList.remove('active'));
+            const activeDesc = document.getElementById('desc-' + category);
+            if (activeDesc) {
+                activeDesc.classList.add('active');
+            }
         }
 
-        // ระบบ Modal ซูมรูป
-        function openModal(src) {
-            const modal = document.getElementById('imgModal');
-            const fullImg = document.getElementById('fullImg');
-            modal.style.display = 'flex';
-            fullImg.src = src;
-        }
-
-        function closeModal() {
-            document.getElementById('imgModal').style.display = 'none';
+        // ฟังก์ชันเมื่อกดที่ตัวการ์ด ให้พุ่งไปที่หมวดหมู่นั้นแล้วเลื่อนจอขึ้นไปแบบนุ่มนวล
+        function goToCategory(category) {
+            filterCategory(category);
+            window.scrollTo({ top: 100, behavior: 'smooth' });
         }
     </script>
 </body>
