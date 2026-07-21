@@ -217,26 +217,6 @@
             font-size: 0.85em;
         }
 
-        /* ปุ่มดูรายละเอียดเพิ่มเติม */
-        .btn-more {
-            align-self: flex-start;
-            background: transparent;
-            border: 1px solid #7c9fff;
-            color: #7c9fff;
-            padding: 8px 18px;
-            border-radius: 6px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            margin-top: 5px;
-        }
-
-        .btn-more:hover {
-            background: rgba(58, 111, 255, 0.3);
-            color: #ffffff;
-            box-shadow: 0 0 15px rgba(58, 111, 255, 0.5);
-        }
-
         /* ปุ่มกลับหน้าหลัก */
         .btn-container {
             text-align: center;
@@ -274,7 +254,7 @@
             text-shadow: 0 0 15px rgba(58, 111, 255, 0.5);
         }
 
-        /* Modal รูปภาพ */
+        /* Modal ซูมรูปภาพ */
         .modal {
             display: none;
             position: fixed;
@@ -305,6 +285,11 @@
             font-size: 40px;
             font-weight: bold;
             cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .close-btn:hover {
+            color: #7c9fff;
         }
 
         @keyframes fadeIn {
@@ -337,7 +322,7 @@
                 <div class="project-info">
                     <h2 class="project-title">🌌 งานวิจัยทฤษฎีภาวะเอกฐานของหลุมดำ (Planck Length Model)</h2>
                     <p class="project-desc">
-                        การศึกษาและนำเสนอแบบจำลองทางคณิตศาสตร์เพื่อโต้แย้งความเชื่อดั้งเดิมที่ว่าแกนกลางหลุมดำมีความหนาแน่นเป็นอนันต์ โดยใช้ความยาวมัคส์ พลังค์ ($Planck\ Length$) เข้ามาแทนค่าพื้นที่จุดศูนย์ในการคำนวณ
+                        การศึกษาและนำเสนอแบบจำลองทางคณิตศาสตร์เพื่อโต้แย้งความเชื่อดั้งเดิมที่ว่าแกนกลางหลุมดำมีความหนาแน่นเป็นอนันต์ โดยใช้ความยาวมัคส์ พลังค์ (Max Planck) เข้ามาแทนค่าพื้นที่จุดศูนย์ในการคำนวณ
                     </p>
                     <div class="tag-list">
                         <span class="tag">Astrophysics</span>
@@ -350,10 +335,10 @@
                 </div>
             </div>
 
-            <!-- Card 2: Science Show -->
+            <!-- Card 2: Science Show (แก้ไขชื่อรูปภาพเรียบร้อย) -->
             <div class="project-card" data-category="science">
-                <div class="project-img-box" onclick="openModal('images/scienceshow.jpg')">
-                    <img src="https://via.placeholder.com/400x250/130820/4d7fff?text=Science+Show+Preview" alt="Science Show" class="project-img">
+                <div class="project-img-box" onclick="openModal('images/วิทย์สมมุติ.jpg')">
+                    <img src="images/วิทย์สมมุติ.jpg" alt="Science Show" class="project-img">
                 </div>
                 <div class="project-info">
                     <h2 class="project-title">🧪 การแสดงทางวิทยาศาสตร์ (Science Show)</h2>
@@ -368,10 +353,10 @@
                 </div>
             </div>
 
-            <!-- Card 3: เทควันโด -->
+            <!-- Card 3: เทควันโด (แก้ไขชื่อรูปภาพเรียบร้อย) -->
             <div class="project-card" data-category="sports">
-                <div class="project-img-box" onclick="openModal('images/taekwondo.jpg')">
-                    <img src="https://via.placeholder.com/400x250/130820/4d7fff?text=Taekwondo+Preview" alt="เทควันโด" class="project-img">
+                <div class="project-img-box" onclick="openModal('images/เทควันโด.jpeg')">
+                    <img src="images/เทควันโด.jpeg" alt="เทควันโด" class="project-img">
                 </div>
                 <div class="project-info">
                     <h2 class="project-title">🥋 การฝึกฝนศิลปะป้องกันตัว เทควันโด (Taekwondo)</h2>
