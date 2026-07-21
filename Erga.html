@@ -1,1 +1,438 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Erga - ผลงานและโครงการ | นภรัท</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
+        body {
+            background-image: url('https://raw.githubusercontent.com/Polk16373/ture-portfolio/main/images/Eisodus.jpg');
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
+            color: #ffffff;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            min-height: 100vh;
+            padding: 20px;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(13, 8, 32, 0.65);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .container {
+            max-width: 950px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 30px 20px;
+            border: 3px solid #3a6fff;
+            border-radius: 15px;
+            background: rgba(13, 8, 32, 0.85);
+            box-shadow: 0 0 50px rgba(58, 111, 255, 0.4);
+        }
+
+        h1 {
+            font-size: 2.3em;
+            color: #ffffff;
+            margin-bottom: 10px;
+            text-shadow: 0 0 30px rgba(58, 111, 255, 0.8);
+            font-weight: 700;
+        }
+
+        .subtitle {
+            font-size: 1.1em;
+            color: #e0e8ff;
+            font-style: italic;
+        }
+
+        /* 🔘 ปุ่มเลือกหมวดหมู่ (Filter Tabs) */
+        .category-container {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .tab-btn {
+            background: rgba(13, 8, 32, 0.8);
+            border: 2px solid #4d7fff;
+            color: #e8eeff;
+            padding: 12px 25px;
+            border-radius: 30px;
+            font-size: 1.05em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 15px rgba(58, 111, 255, 0.2);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .tab-btn:hover {
+            border-color: #a0c8ff;
+            box-shadow: 0 0 25px rgba(58, 111, 255, 0.5);
+            transform: translateY(-2px);
+        }
+
+        .tab-btn.active {
+            background: linear-gradient(135deg, #3a6fff, #7c9fff);
+            border-color: #a0c8ff;
+            color: #ffffff;
+            box-shadow: 0 0 30px rgba(58, 111, 255, 0.7);
+        }
+
+        /* 🎴 การ์ดแสดงผลงาน */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 25px;
+        }
+
+        .project-card {
+            background: rgba(13, 8, 32, 0.88);
+            border: 2px solid #4d7fff;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 0 40px rgba(58, 111, 255, 0.3);
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            animation: fadeIn 0.4s ease;
+            transition: all 0.3s ease;
+        }
+
+        @media (min-width: 768px) {
+            .project-card {
+                flex-direction: row;
+                align-items: center;
+            }
+            .project-card.featured {
+                flex-direction: column;
+            }
+        }
+
+        .project-card:hover {
+            border-color: #7c9fff;
+            box-shadow: 0 0 50px rgba(58, 111, 255, 0.5);
+        }
+
+        /* โหมดเน้นงานวิจัยหลัก (Featured) */
+        .project-card.featured {
+            border: 3px solid #7c9fff;
+            background: rgba(18, 11, 45, 0.92);
+            box-shadow: 0 0 50px rgba(58, 111, 255, 0.45);
+        }
+
+        .badge-featured {
+            align-self: flex-start;
+            background: linear-gradient(135deg, #ff4d7d, #ff7c9f);
+            color: #fff;
+            font-size: 0.85em;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-weight: bold;
+            margin-bottom: 5px;
+            text-shadow: 0 0 5px rgba(0,0,0,0.5);
+        }
+
+        .project-img-box {
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            border: 2px solid #4d7fff;
+            min-width: 250px;
+            max-width: 100%;
+            cursor: pointer;
+        }
+
+        .project-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+
+        .project-img-box:hover .project-img {
+            transform: scale(1.05);
+        }
+
+        .project-info {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            text-align: left;
+        }
+
+        .project-title {
+            font-size: 1.5em;
+            color: #ffffff;
+            font-weight: 700;
+            text-shadow: 0 0 15px rgba(58, 111, 255, 0.6);
+        }
+
+        .project-desc {
+            color: #e8eeff;
+            line-height: 1.7;
+            font-size: 1.05em;
+        }
+
+        .tag-list {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-top: 5px;
+        }
+
+        .tag {
+            background: rgba(58, 111, 255, 0.2);
+            border: 1px solid #7c9fff;
+            color: #a0c8ff;
+            padding: 3px 10px;
+            border-radius: 5px;
+            font-size: 0.85em;
+        }
+
+        /* ปุ่มดูรายละเอียดเพิ่มเติม */
+        .btn-more {
+            align-self: flex-start;
+            background: transparent;
+            border: 1px solid #7c9fff;
+            color: #7c9fff;
+            padding: 8px 18px;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 5px;
+        }
+
+        .btn-more:hover {
+            background: rgba(58, 111, 255, 0.3);
+            color: #ffffff;
+            box-shadow: 0 0 15px rgba(58, 111, 255, 0.5);
+        }
+
+        /* ปุ่มกลับหน้าหลัก */
+        .btn-container {
+            text-align: center;
+            margin-top: 35px;
+        }
+
+        .btn-back {
+            background: linear-gradient(135deg, #4d7fff, #7c9fff);
+            color: #ffffff;
+            border: 1px solid #4d7fff;
+            padding: 12px 35px;
+            border-radius: 8px;
+            font-size: 1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            box-shadow: 0 0 25px rgba(58, 111, 255, 0.4);
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-back:hover {
+            background: linear-gradient(135deg, #7c9fff, #a0c8ff);
+            box-shadow: 0 0 40px rgba(58, 111, 255, 0.6);
+            transform: translateY(-3px);
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 20px;
+            border-top: 2px solid #4d7fff;
+            color: #e0e8ff;
+            font-style: italic;
+            text-shadow: 0 0 15px rgba(58, 111, 255, 0.5);
+        }
+
+        /* Modal รูปภาพ */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 999;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(5, 2, 15, 0.92);
+            justify-content: center;
+            align-items: center;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .modal-content {
+            max-width: 90%;
+            max-height: 85vh;
+            border: 2px solid #7c9fff;
+            border-radius: 10px;
+            box-shadow: 0 0 50px rgba(58, 111, 255, 0.8);
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 20px;
+            right: 35px;
+            color: #ffffff;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>✦ Erga ✦</h1>
+            <p class="subtitle">ผลงาน โครงงาน และการฝึกฝน (Projects & Achievements)</p>
+        </header>
+
+        <!-- 🔘 ปุ่มสลับหมวดหมู่ -->
+        <div class="category-container">
+            <button class="tab-btn active" onclick="filterCategory('all', this)">✨ ผลงานทั้งหมด</button>
+            <button class="tab-btn" onclick="filterCategory('research', this)">🌌 งานวิจัยหลุมดำ</button>
+            <button class="tab-btn" onclick="filterCategory('science', this)">🧪 Science Show</button>
+            <button class="tab-btn" onclick="filterCategory('sports', this)">🥋 เทควันโด & วินัย</button>
+        </div>
+
+        <!-- 🎴 รายการผลงาน -->
+        <main class="portfolio-grid">
+
+            <!-- Card 1: งานวิจัยหลุมดำ (Featured Card) -->
+            <div class="project-card featured" data-category="research">
+                <span class="badge-featured">⭐ Highlight Project</span>
+                <div class="project-info">
+                    <h2 class="project-title">🌌 งานวิจัยทฤษฎีภาวะเอกฐานของหลุมดำ (Planck Length Model)</h2>
+                    <p class="project-desc">
+                        การศึกษาและนำเสนอแบบจำลองทางคณิตศาสตร์เพื่อโต้แย้งความเชื่อดั้งเดิมที่ว่าแกนกลางหลุมดำมีความหนาแน่นเป็นอนันต์ โดยใช้ความยาวมัคส์ พลังค์ ($Planck\ Length$) เข้ามาแทนค่าพื้นที่จุดศูนย์ในการคำนวณ
+                    </p>
+                    <div class="tag-list">
+                        <span class="tag">Astrophysics</span>
+                        <span class="tag">Theoretical Physics</span>
+                        <span class="tag">Mathematics</span>
+                    </div>
+                </div>
+                <div class="project-img-box" onclick="openModal('images/หลุมดำ.jpg')">
+                    <img src="images/หลุมดำ.jpg" alt="งานวิจัยหลุมดำ" class="project-img">
+                </div>
+            </div>
+
+            <!-- Card 2: Science Show -->
+            <div class="project-card" data-category="science">
+                <div class="project-img-box" onclick="openModal('images/scienceshow.jpg')">
+                    <img src="https://via.placeholder.com/400x250/130820/4d7fff?text=Science+Show+Preview" alt="Science Show" class="project-img">
+                </div>
+                <div class="project-info">
+                    <h2 class="project-title">🧪 การแสดงทางวิทยาศาสตร์ (Science Show)</h2>
+                    <p class="project-desc">
+                        เข้าร่วมการแข่งขันและจัดแสดงการทดลองวิทยาศาสตร์ นำเสนอหลักการทางฟิสิกส์และเคมีให้เข้าใจง่าย เพื่อส่งเสริมทักษะการสื่อสารสาระสำคัญทางวิทยาศาสตร์แก่สาธารณชน
+                    </p>
+                    <div class="tag-list">
+                        <span class="tag">Communication</span>
+                        <span class="tag">Experiment</span>
+                        <span class="tag">Teamwork</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 3: เทควันโด -->
+            <div class="project-card" data-category="sports">
+                <div class="project-img-box" onclick="openModal('images/taekwondo.jpg')">
+                    <img src="https://via.placeholder.com/400x250/130820/4d7fff?text=Taekwondo+Preview" alt="เทควันโด" class="project-img">
+                </div>
+                <div class="project-info">
+                    <h2 class="project-title">🥋 การฝึกฝนศิลปะป้องกันตัว เทควันโด (Taekwondo)</h2>
+                    <p class="project-desc">
+                        การฝึกฝนทักษะเทควันโดในช่วงมัธยมศึกษาตอนต้น เพื่อเสริมสร้างระเบียบวินัย สมาธิ ความอดทน และการควบคุมจิตใจภายใต้สภาวะกดดัน ซึ่งเป็นพื้นฐานสำคัญในการฟันฝ่าโจทย์ปัญหายากๆ ในชีวิต
+                    </p>
+                    <div class="tag-list">
+                        <span class="tag">Discipline</span>
+                        <span class="tag">Martial Arts</span>
+                        <span class="tag">Focus & Endurance</span>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+
+        <!-- ปุ่มกลับหน้าหลัก -->
+        <div class="btn-container">
+            <a href="index.html" class="btn-back">⬅ กลับหน้าหลัก</a>
+        </div>
+
+        <footer>
+            <p>🌙 The Skopoufolio 🌙</p>
+        </footer>
+    </div>
+
+    <!-- Modal ซูมรูปภาพ -->
+    <div id="imgModal" class="modal" onclick="closeModal()">
+        <span class="close-btn" onclick="closeModal()">&times;</span>
+        <img class="modal-content" id="fullImg" onclick="event.stopPropagation()">
+    </div>
+
+    <script>
+        // ระบบกรองหมวดหมู่
+        function filterCategory(category, btnElement) {
+            const cards = document.querySelectorAll('.project-card');
+            const buttons = document.querySelectorAll('.tab-btn');
+
+            buttons.forEach(btn => btn.classList.remove('active'));
+            btnElement.classList.add('active');
+
+            cards.forEach(card => {
+                if (category === 'all' || card.getAttribute('data-category') === category) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // ระบบ Modal ซูมรูป
+        function openModal(src) {
+            const modal = document.getElementById('imgModal');
+            const fullImg = document.getElementById('fullImg');
+            modal.style.display = 'flex';
+            fullImg.src = src;
+        }
+
+        function closeModal() {
+            document.getElementById('imgModal').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
