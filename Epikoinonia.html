@@ -1,1 +1,226 @@
-Epikoinonia
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Epikoinonia - ช่องทางติดต่อ | นภรัท</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-image: url('https://raw.githubusercontent.com/Polk16373/ture-portfolio/main/images/Eisodus.jpg');
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
+            color: #ffffff;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            min-height: 100vh;
+            padding: 20px;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(13, 8, 32, 0.65);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 30px 20px;
+            border: 3px solid #3a6fff;
+            border-radius: 15px;
+            background: rgba(13, 8, 32, 0.85);
+            box-shadow: 0 0 50px rgba(58, 111, 255, 0.4);
+        }
+
+        h1 {
+            font-size: 2.3em;
+            color: #ffffff;
+            margin-bottom: 10px;
+            text-shadow: 0 0 30px rgba(58, 111, 255, 0.8);
+            font-weight: 700;
+        }
+
+        .subtitle {
+            font-size: 1.1em;
+            color: #e0e8ff;
+            font-style: italic;
+        }
+
+        /* 📬 การ์ดกล่องช่องทางติดต่อ */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            margin-bottom: 35px;
+        }
+
+        @media (min-width: 600px) {
+            .contact-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        .contact-card {
+            background: rgba(13, 8, 32, 0.88);
+            border: 2px solid #4d7fff;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 0 30px rgba(58, 111, 255, 0.25);
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            transition: all 0.3s ease;
+            animation: fadeIn 0.4s ease;
+        }
+
+        .contact-card:hover {
+            border-color: #7c9fff;
+            box-shadow: 0 0 45px rgba(58, 111, 255, 0.55);
+            transform: translateY(-4px);
+        }
+
+        .contact-icon {
+            font-size: 2em;
+            margin-bottom: 5px;
+        }
+
+        .contact-title {
+            font-size: 1.2em;
+            color: #7c9fff;
+            font-weight: 600;
+        }
+
+        .contact-detail {
+            color: #e8eeff;
+            font-size: 1.05em;
+            line-height: 1.5;
+            word-break: break-word;
+        }
+
+        /* 🔘 ปุ่มย้อนกลับด้านล่าง */
+        .btn-container {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .btn-back {
+            background: linear-gradient(135deg, #4d7fff, #7c9fff);
+            color: #ffffff;
+            border: 1px solid #4d7fff;
+            padding: 12px 35px;
+            border-radius: 8px;
+            font-size: 1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            box-shadow: 0 0 25px rgba(58, 111, 255, 0.4);
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-back:hover {
+            background: linear-gradient(135deg, #7c9fff, #a0c8ff);
+            box-shadow: 0 0 40px rgba(58, 111, 255, 0.6);
+            transform: translateY(-3px);
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 20px;
+            border-top: 2px solid #4d7fff;
+            color: #e0e8ff;
+            font-style: italic;
+            text-shadow: 0 0 15px rgba(58, 111, 255, 0.5);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>✨ Epikoinonia ✨</h1>
+            <p class="subtitle">ช่องทางการติดต่อและการสื่อสาร (Contact Information)</p>
+        </header>
+
+        <!-- 📬 รายการช่องทางติดต่อ -->
+        <main class="contact-grid">
+
+            <!-- 1. ที่อยู่ -->
+            <div class="contact-card">
+                <div class="contact-icon">📍</div>
+                <div class="contact-title">ที่อยู่ (Address)</div>
+                <div class="contact-detail">
+                    <!-- กรอกที่อยู่ของคุณตรงนี้ -->
+                    123/45 ถนน... แขวง/ตำบล...<br>
+                    เขต/อำเภอ... จังหวัด... 10xxx
+                </div>
+            </div>
+
+            <!-- 2. อีเมล -->
+            <div class="contact-card">
+                <div class="contact-icon">✉️</div>
+                <div class="contact-title">อีเมล (Email)</div>
+                <div class="contact-detail">
+                    <!-- กรอกอีเมลของคุณตรงนี้ -->
+                    your.email@example.com
+                </div>
+            </div>
+
+            <!-- 3. เบอร์โทร -->
+            <div class="contact-card">
+                <div class="contact-icon">📞</div>
+                <div class="contact-title">เบอร์โทรศัพท์ (Phone)</div>
+                <div class="contact-detail">
+                    <!-- กรอกเบอร์โทรของคุณตรงนี้ -->
+                    08x-xxx-xxxx
+                </div>
+            </div>
+
+            <!-- 4. เว็บไซต์ -->
+            <div class="contact-card">
+                <div class="contact-icon">🌐</div>
+                <div class="contact-title">เว็บไซต์ (Website)</div>
+                <div class="contact-detail">
+                    <!-- กรอกลิงก์เว็บไซต์ของคุณตรงนี้ -->
+                    https://polk16373.github.io/ture-portfolio/
+                </div>
+            </div>
+
+        </main>
+
+        <!-- 🔘 ปุ่มย้อนกลับไปหน้าหลัก -->
+        <div class="btn-container">
+            <a href="index.html" class="btn-back">⬅ กลับหน้าหลัก</a>
+        </div>
+
+        <footer>
+            <p>🌙 The Epikoinonia 🌙</p>
+        </footer>
+    </div>
+</body>
+</html>
