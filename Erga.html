@@ -399,6 +399,16 @@
             filterCategory(category);
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
+
+        // 🚀 อ่านค่าจาก URL พอกดมาจากหน้า Delosi Skopou เพื่อสั่งล็อคหมวดหมู่อัตโนมัติ
+        window.addEventListener('DOMContentLoaded', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const categoryParam = urlParams.get('category');
+            
+            if (categoryParam) {
+                filterCategory(categoryParam);
+            }
+        });
     </script>
 </body>
 </html>
