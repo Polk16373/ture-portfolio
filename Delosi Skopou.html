@@ -66,7 +66,6 @@
             font-style: italic;
         }
 
-        /* กรอบแสดงบทความ SOP (แก้ไข text-align เป็น left แล้ว) */
         .sop-card {
             background: rgba(13, 8, 32, 0.88);
             border: 2px solid #4d7fff;
@@ -121,6 +120,7 @@
             border: 2px solid #4d7fff;
             box-shadow: 0 0 30px rgba(58, 111, 255, 0.4);
             transition: all 0.3s ease;
+            text-decoration: none;
         }
 
         .preview-img-container:hover {
@@ -142,7 +142,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(13, 8, 32, 0.6);
+            background: rgba(13, 8, 32, 0.7);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -156,44 +156,6 @@
 
         .preview-img-container:hover .img-overlay {
             opacity: 1;
-        }
-
-        /* Modal ซูมรูปภาพเต็มจอ */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 999;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(5, 2, 15, 0.92);
-            justify-content: center;
-            align-items: center;
-            animation: fadeIn 0.3s ease;
-        }
-
-        .modal-content {
-            max-width: 90%;
-            max-height: 85vh;
-            border: 2px solid #7c9fff;
-            border-radius: 10px;
-            box-shadow: 0 0 50px rgba(58, 111, 255, 0.8);
-        }
-
-        .close-btn {
-            position: absolute;
-            top: 20px;
-            right: 35px;
-            color: #ffffff;
-            font-size: 40px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: color 0.3s ease;
-        }
-
-        .close-btn:hover {
-            color: #7c9fff;
         }
 
         /* ปุ่มกลับหน้าหลัก */
@@ -232,11 +194,6 @@
             font-style: italic;
             text-shadow: 0 0 15px rgba(58, 111, 255, 0.5);
         }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
     </style>
 </head>
 <body>
@@ -268,13 +225,13 @@
                 สุดท้ายนี้ แม้ผมอาจจะยังไม่มีความรู้ในด้านกลศาสตร์ควอนตัมมากนัก แต่มหาวิทยาลัยแห่งนี้จะเป็นเหมือนข้อมูลชุดใหม่ที่ทำให้ผมได้ก้าวข้ามขีดจำกัดของตัวเองอีกครั้ง และแน่นอนครับ ผมจะไม่หยุดอยู่แค่ที่นี่ หากได้รับโอกาสและทุนศึกษาต่อต่างประเทศ ผมพร้อมที่จะก้าวต่อไปเพื่อวิจัยและไขปริศนาของจักรวาลนี้ให้อย่างถูกต้องที่สุดครับ ขอบคุณครับ
             </p>
 
-            <!-- ส่วนรูปภาพประกอบ -->
+            <!-- ส่วนรูปภาพประกอบ (คลิกแล้วเปิดไปหน้า Erga หมวดหลุมดำทันที) -->
             <div class="image-section">
                 <div class="img-title">🔬 ภาพประกอบงานวิจัยเกี่ยวกับหลุมดำ</div>
-                <div class="preview-img-container" onclick="openModal('images/หลุมดำ.jpg')">
+                <a href="Erga.html#research" class="preview-img-container">
                     <img src="images/หลุมดำ.jpg" alt="งานวิจัยหลุมดำ" class="sop-img">
-                    <div class="img-overlay">🔍 คลิกเพื่อดูรูปภาพขนาดใหญ่</div>
-                </div>
+                    <div class="img-overlay">🚀 คลิกเพื่อเปิดดูรายละเอียดงานวิจัย (Erga)</div>
+                </a>
             </div>
         </main>
 
@@ -287,25 +244,5 @@
             <p>🌙 The Skopoufolio 🌙</p>
         </footer>
     </div>
-
-    <!-- Modal ซูมรูปภาพ -->
-    <div id="imgModal" class="modal" onclick="closeModal()">
-        <span class="close-btn" onclick="closeModal()">&times;</span>
-        <img class="modal-content" id="fullImg" onclick="event.stopPropagation()">
-    </div>
-
-    <!-- สคริปต์ซูมรูปภาพ -->
-    <script>
-        function openModal(src) {
-            const modal = document.getElementById('imgModal');
-            const fullImg = document.getElementById('fullImg');
-            modal.style.display = 'flex';
-            fullImg.src = src;
-        }
-
-        function closeModal() {
-            document.getElementById('imgModal').style.display = 'none';
-        }
-    </script>
 </body>
 </html>
